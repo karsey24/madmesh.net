@@ -1,0 +1,276 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const midwestMeshes = [
+	{
+		name: "Meshconsin",
+		location: "Wisconsin (statewide)",
+		description:
+			"Our closest friends! Meshconsin is the statewide Wisconsin mesh network. If you're outside Madison, this is the best place to connect with other Wisconsin meshers.",
+		url: "https://meshconsin.org/",
+		highlight: true,
+	},
+	{
+		name: "Chicagoland Mesh",
+		location: "Chicago, Illinois",
+		description:
+			"One of the largest mesh communities in the Midwest. Great resource for hardware tips and large-scale network building.",
+		url: "https://chicagolandmesh.org/",
+	},
+	{
+		name: "Ohio Mesh",
+		location: "Ohio (statewide)",
+		description: "A growing statewide network across Ohio covering Columbus, Cleveland, Cincinnati, and beyond.",
+		url: "https://www.ohiomesh.net/",
+	},
+	{
+		name: "Michigan Mesh",
+		location: "Michigan",
+		description: "Active mesh communities across Michigan, particularly in the Detroit and Grand Rapids areas.",
+		url: "https://michiganmesh.org/",
+	},
+	{
+		name: "Minnesota Mesh",
+		location: "Minnesota",
+		description: "Growing mesh network in the Twin Cities area and across greater Minnesota.",
+		url: "https://mnmesh.org/",
+	},
+	{
+		name: "Indiana Mesh",
+		location: "Indiana",
+		description: "Community mesh networks developing in Indianapolis and across Indiana.",
+		url: "https://indymesh.org/",
+	},
+];
+
+const otherNotableMeshes = [
+	{
+		name: "Austin Mesh",
+		location: "Austin, TX",
+		url: "https://www.austinmesh.org/",
+		description: "The original inspiration for Madison Mesh. Excellent documentation and getting started guides.",
+	},
+	{
+		name: "Denver Mesh",
+		location: "Denver, CO",
+		url: "https://denvermesh.org/",
+		description: "Very active community with great outdoor range thanks to elevation.",
+	},
+	{
+		name: "bayme.sh",
+		location: "San Francisco Bay Area, CA",
+		url: "https://bayme.sh/",
+		description: "One of the most technically advanced mesh communities in the US.",
+	},
+	{
+		name: "NC Mesh",
+		location: "North Carolina",
+		url: "https://ncmesh.net/",
+		description: "Statewide North Carolina mesh effort.",
+	},
+	{
+		name: "Northwest Arkansas Mesh",
+		location: "Northwest Arkansas",
+		url: "https://nwamesh.com/",
+		description: "Growing community in the Fayetteville/Bentonville area.",
+	},
+	{
+		name: "North Texas Mesh",
+		location: "North Texas",
+		url: "https://ntxmesh.com/",
+		description: "Large Dallas/Fort Worth metro mesh community.",
+	},
+	{
+		name: "SoCal Mesh",
+		location: "Southern California",
+		url: "https://socalmesh.org/",
+		description: "Extensive coverage across the Los Angeles and San Diego areas.",
+	},
+	{
+		name: "Charlotte Mesh",
+		location: "Charlotte, NC",
+		url: "https://charlottemesh.org/",
+		description: "Active community in the Charlotte metro area.",
+	},
+	{ name: "Birmingham Mesh", location: "Birmingham, AL", url: "http://birminghammesh.org/", description: "" },
+	{
+		name: "YYC Mesh",
+		location: "Calgary, AB (Canada)",
+		url: "https://yycmesh.com/",
+		description: "Strong Canadian mesh community.",
+	},
+];
+---
+
+<Layout
+	title="Midwest Meshes"
+	description="Explore mesh networks in Wisconsin and across the Midwest region — communities building free, off-grid communication networks near you."
+>
+	<div class="container">
+		<section class="section" style="padding-top: 2rem;">
+			<h1>Midwest Mesh Networks</h1>
+			<p>
+				Mesh networking is spreading fast across the Midwest. Whether you're traveling, looking to
+				collaborate, or just curious what's happening in neighboring communities, here are the networks
+				closest to us.
+			</p>
+			<p>
+				All of these communities are building the same kind of free, open-source, off-grid radio network
+				that we are. The more nodes, the better &mdash; for everyone.
+			</p>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Midwest Networks -->
+		<section class="section">
+			<h2>Nearby &amp; Midwest Networks</h2>
+			<p class="text-muted" style="margin-bottom: 1.5rem;">
+				Networks within the Great Lakes and surrounding region.
+			</p>
+
+			<div class="card-grid">
+				{
+					midwestMeshes.map((mesh) => (
+						<div class={`card${mesh.highlight ? " card-highlight" : ""}`}>
+							{mesh.highlight && <span class="card-badge">Our State Network</span>}
+							<h3>
+								<a href={mesh.url} target="_blank" rel="noopener noreferrer">
+									{mesh.name} ↗
+								</a>
+							</h3>
+							<p class="text-muted" style="margin-bottom: 0.5rem; font-size: 0.85rem;">
+								{mesh.location}
+							</p>
+							<p style="font-size: 0.95rem; margin-bottom: 0;">{mesh.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Other US/International -->
+		<section class="section">
+			<h2>Other Notable Networks</h2>
+			<p class="text-muted" style="margin-bottom: 1.5rem;">
+				Established mesh communities elsewhere in the US and beyond &mdash; great sources of documentation,
+				inspiration, and collaboration.
+			</p>
+
+			<table class="mesh-table">
+				<thead>
+					<tr>
+						<th>Network</th>
+						<th>Location</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						otherNotableMeshes.map((mesh) => (
+							<tr>
+								<td>
+									<a href={mesh.url} target="_blank" rel="noopener noreferrer">
+										{mesh.name} ↗
+									</a>
+								</td>
+								<td class="text-muted" style="font-size:0.9rem;">
+									{mesh.location}
+								</td>
+								<td style="font-size:0.9rem;">{mesh.description}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Start your own -->
+		<section class="section">
+			<h2>Don't see your city?</h2>
+			<p>
+				Is there a mesh network in your area that isn't listed here?
+				<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer"
+					>Let us know on Discord</a
+				>
+				and we'll add it.
+			</p>
+			<p>
+				Thinking of starting a mesh community in your own city or town? <a
+					href="https://www.austinmesh.org/similar-networks/#start-a-similar-network"
+					target="_blank"
+					rel="noopener noreferrer">Austin Mesh has an excellent guide</a
+				>
+				on how to get one started, from organizing meetups to placing first nodes.
+			</p>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.card-highlight {
+		border-color: var(--clr-primary);
+		background-color: oklch(22% 0.06 232.69);
+		position: relative;
+	}
+
+	.card-badge {
+		display: inline-block;
+		background-color: var(--clr-primary);
+		color: var(--clr-neutral);
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		padding: 0.15rem 0.5rem;
+		border-radius: 999px;
+		margin-bottom: 0.75rem;
+	}
+
+	.mesh-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+	}
+
+	.mesh-table thead tr {
+		border-bottom: 2px solid var(--clr-neutral-border);
+	}
+
+	.mesh-table th {
+		text-align: left;
+		padding: 0.5rem 0.75rem;
+		color: oklch(65% 0.005 271);
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-weight: 600;
+	}
+
+	.mesh-table td {
+		padding: 0.65rem 0.75rem;
+		vertical-align: top;
+		border-bottom: 1px solid var(--clr-neutral-border);
+		color: var(--clr-light);
+	}
+
+	.mesh-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.mesh-table a {
+		color: var(--clr-primary);
+		font-weight: 500;
+	}
+
+	@media (max-width: 640px) {
+		.mesh-table th:last-child,
+		.mesh-table td:last-child {
+			display: none;
+		}
+	}
+</style>

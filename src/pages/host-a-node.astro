@@ -1,0 +1,235 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+	{
+		q: "What exactly is the node being used for?",
+		a: `A Madison Mesh node expands a free, open-source community radio network that lets people
+    send text messages across the city without using cell towers or the internet. It also
+    has applications in emergency preparedness and community resilience — if cell service
+    goes down, the mesh network keeps working.`,
+	},
+	{
+		q: "What kind of equipment will be installed?",
+		a: `Typically a small weatherproof enclosure (roughly the size of a large deck of cards)
+    containing a microcontroller and LoRa radio chip, plus a small external antenna mounted
+    to a pole or bracket. The entire installation typically weighs under 1 pound. Some locations
+    may also include a small solar panel if a power outlet isn't available.`,
+	},
+	{
+		q: "How will it be powered?",
+		a: `Most nodes are powered by a standard USB power adapter plugged into an existing outlet —
+    similar to a phone charger. If no outdoor outlet is available, nodes can be solar-powered
+    and completely self-sufficient. Solar nodes require no wiring into your building at all.`,
+	},
+	{
+		q: "What kind of antenna will be involved?",
+		a: `Usually a small vertical antenna (6–12 inches tall) mounted on a mast, pole, or magnetic
+    base. No drilling into your building is required — typical installation uses hose clamps
+    around a mast, magnetic mounts, or non-penetrating roof mounts. Any mounting requirements
+    will be discussed and agreed upon before installation.`,
+	},
+	{
+		q: "How much maintenance is required from me?",
+		a: `None. Nodes are designed to run autonomously for years. Occasionally (perhaps once or
+    twice a year) a community member may request access to update firmware or check hardware.
+    The terms for any access visits can be determined together and put in writing.`,
+	},
+	{
+		q: "What frequencies does it use? Will it interfere with my Wi-Fi, TV, or other equipment?",
+		a: `The Madison Mesh network operates on the 902–928 MHz ISM band — a completely different
+    frequency from Wi-Fi (2.4 / 5 GHz), LTE cell service, or cable TV. Interference with
+    your existing equipment is extremely unlikely. The FCC has designated this band specifically
+    for unlicensed devices like this one. Transmit power is very low (typically under 1 watt).`,
+	},
+	{
+		q: "Is any licensing required?",
+		a: `No license is required for either the property owner or the node operator. The LoRa
+    radio equipment operates in an unlicensed band (902–928 MHz / Part 15) under FCC rules.
+    No permits or HOA approvals are needed for the radio itself, though you should check
+    your own HOA or building rules before agreeing to any roof or exterior modifications.`,
+	},
+	{
+		q: "What are the liability implications?",
+		a: `The liability risk is considered extremely low, as the equipment is low-power, passive,
+    and does not connect to the internet or process personal data. The installation is designed
+    to leave no permanent marks and can be removed cleanly. We're happy to provide documentation
+    or answer any questions your insurance provider or building manager may have.`,
+	},
+	{
+		q: "What data does the node transmit? Is it private?",
+		a: `Nodes relay short text messages and GPS position data for other users on the mesh network.
+    No personal data tied to your location or identity is stored on or transmitted by the node.
+    The node does not have internet access and cannot communicate with anything outside the
+    local mesh network.`,
+	},
+	{
+		q: "How long will it be there? Can I have it removed?",
+		a: `There's no required commitment. We're happy to work out a clear timeframe together, or
+    simply agree that removal can be requested at any time with reasonable notice. Removal
+    is expected to leave no permanent marks or damage to the property.`,
+	},
+	{
+		q: "Who else in Madison is hosting nodes?",
+		a: `The network is still growing! Current hosts include private residences across Madison,
+    businesses with rooftop access, and community organizations. We're especially looking
+    for hosts in elevated or less-covered parts of the city. Ask on Discord for current
+    locations.`,
+	},
+	{
+		q: "I'm not a tech person. Do I need to do anything to keep it running?",
+		a: `No. Once installed, you do absolutely nothing. You don't need to manage software, connect
+    it to your Wi-Fi, or do any ongoing maintenance. It simply powers on and runs. Our community
+    members handle all technical aspects.`,
+	},
+];
+---
+
+<Layout
+	title="Host a Node — FAQ"
+	description="Thinking about hosting a Madison Mesh node on your property? Here are answers to common questions from property owners."
+>
+	<div class="container">
+		<section class="section" style="padding-top: 2rem;">
+			<h1>FAQ: Hosting a Node on Your Property</h1>
+			<p style="font-size: 1.1rem;">
+				Someone has asked if they can place a Madison Mesh node on your property — or maybe you're exploring
+				the idea yourself. Either way, this page covers everything a property owner would want to know. <strong
+					>No technical knowledge required on your part.</strong
+				>
+			</p>
+			<p>
+				If you have more questions after reading this, please reach out via our
+				<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer">Discord</a>
+				or ask the community member who approached you.
+			</p>
+		</section>
+
+		<!-- Quick benefits box -->
+		<div
+			class="card"
+			style="background-color: oklch(22% 0.06 232.69); border-color: var(--clr-primary-darker); margin-bottom: 2rem;"
+		>
+			<h3 style="color: var(--clr-primary); margin-bottom: 1rem;">Why hosting helps the community</h3>
+			<div
+				style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem 1.5rem;"
+			>
+				<div>
+					<strong style="display:block; margin-bottom: 0.25rem;">📡 Better coverage</strong>
+					<span style="font-size: 0.9rem; color: oklch(75% 0.005 271);"
+						>Your location may bridge a gap that helps dozens of users connect.</span
+					>
+				</div>
+				<div>
+					<strong style="display:block; margin-bottom: 0.25rem;">🆘 Emergency resilience</strong>
+					<span style="font-size: 0.9rem; color: oklch(75% 0.005 271);"
+						>The mesh works when cell towers don't. Your node helps your neighbors stay connected.</span
+					>
+				</div>
+				<div>
+					<strong style="display:block; margin-bottom: 0.25rem;">🔧 Zero effort from you</strong>
+					<span style="font-size: 0.9rem; color: oklch(75% 0.005 271);"
+						>Once installed, it runs silently with no action needed on your part.</span
+					>
+				</div>
+				<div>
+					<strong style="display:block; margin-bottom: 0.25rem;">💰 No cost to you</strong>
+					<span style="font-size: 0.9rem; color: oklch(75% 0.005 271);"
+						>The community member placing the node handles hardware and installation costs.</span
+					>
+				</div>
+			</div>
+		</div>
+
+		<hr class="divider" />
+
+		<!-- FAQ List -->
+		<section class="section">
+			<h2>Frequently Asked Questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item, i) => (
+						<div class="faq-item">
+							<h3 class="faq-q">
+								<span class="faq-num">{i + 1}</span>
+								{item.q}
+							</h3>
+							<p class="faq-a">{item.a}</p>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<section class="section">
+			<h2>Ready to host, or have more questions?</h2>
+			<p>
+				Join the Discord and introduce yourself in <strong>#introductions</strong> or
+				<strong>#general</strong>. Community members can answer specific questions about your location and
+				coordinate an installation visit at your convenience.
+			</p>
+			<div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+				<a
+					href="https://discord.gg/fd3JUZc2CN"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn-primary"
+				>
+					Join the Discord &rarr;
+				</a>
+				<a href="/getting-started" class="btn btn-secondary"> Learn more about the network </a>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.faq-item {
+		padding: 1.5rem 0;
+		border-bottom: 1px solid var(--clr-neutral-border);
+	}
+
+	.faq-item:last-child {
+		border-bottom: none;
+	}
+
+	.faq-q {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+		font-size: 1.05rem;
+		color: var(--clr-primary);
+		margin-bottom: 0.6rem;
+		font-weight: 600;
+	}
+
+	.faq-num {
+		flex-shrink: 0;
+		min-width: 1.6rem;
+		height: 1.6rem;
+		background-color: var(--clr-primary);
+		color: var(--clr-neutral);
+		border-radius: 50%;
+		font-size: 0.8rem;
+		font-weight: 700;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.faq-a {
+		margin: 0;
+		padding-left: 2.35rem;
+		color: var(--clr-light);
+		font-size: 0.97rem;
+		line-height: 1.65;
+	}
+</style>

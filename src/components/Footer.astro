@@ -1,0 +1,65 @@
+---
+import msnLogo from "../assets/msn.webp";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+				<img src={msnLogo.src} alt="Madison Mesh logo" height="36" width="36" style="border-radius:4px;" />
+				<h3 style="margin:0;">Madison Mesh</h3>
+			</div>
+			<p>Building a free, community-owned mesh radio<br />network in Madison, Wisconsin.</p>
+			<p>
+				Inspired by <a href="https://www.austinmesh.org/" target="_blank" rel="noopener noreferrer"
+					>Austin Mesh</a
+				>. Content licensed under
+				<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"
+					>CC BY-SA 4.0</a
+				>.
+			</p>
+		</div>
+
+		<div class="footer-nav">
+			<h4>Get Involved</h4>
+			<ul>
+				<li><a href="/getting-started">Getting Started</a></li>
+				<li><a href="/coverage">Coverage &amp; Antennas</a></li>
+				<li><a href="/build-a-node">Build a Node</a></li>
+				<li><a href="/host-a-node">Host a Node</a></li>
+				<li>
+					<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer">Discord</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="footer-nav">
+			<h4>Explore</h4>
+			<ul>
+				<li><a href="/midwest-meshes">Midwest Meshes</a></li>
+				<li>
+					<a href="https://meshconsin.org/" target="_blank" rel="noopener noreferrer">Meshconsin ↗</a>
+				</li>
+				<li>
+					<a href="https://www.austinmesh.org/" target="_blank" rel="noopener noreferrer"
+						>Austin Mesh ↗</a
+					>
+				</li>
+				<li>
+					<a href="https://meshtastic.org/" target="_blank" rel="noopener noreferrer">Meshtastic ↗</a>
+				</li>
+				<li>
+					<a href="https://meshcore.co.uk/" target="_blank" rel="noopener noreferrer">MeshCore ↗</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		&copy; {year} Madison Mesh &mdash; Licensed under
+		<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"
+			>Creative Commons Attribution-ShareAlike 4.0</a
+		>.
+	</div>
+</footer>

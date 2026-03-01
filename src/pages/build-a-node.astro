@@ -1,0 +1,254 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Build a Node"
+	description="Learn how to build a Madison Mesh node — from choosing hardware and enclosures to solar power and secure mounting."
+>
+	<div class="container">
+		<section class="section" style="padding-top: 2rem;">
+			<h1>Build a Node</h1>
+			<p>
+				A "node" is just a LoRa radio with the right firmware, a good antenna, and a power source. You can
+				have a basic indoor node running in under an hour, or build a weatherproof solar-powered outdoor
+				node that runs for years with no maintenance.
+			</p>
+			<p>This page covers common builds from simplest to most capable. Start wherever makes sense for you.</p>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Build types -->
+		<section class="section">
+			<h2>Which Type of Node?</h2>
+
+			<div class="card-grid">
+				<div class="card">
+					<span class="card-icon">🏠</span>
+					<h3>Indoor / Window Node</h3>
+					<p style="font-size:0.95rem; margin-bottom: 0.75rem;">
+						The simplest possible node. A LoRa radio plugged into a USB charger, placed in an
+						upper-floor window with the stock or a short external antenna.
+					</p>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
+						<strong>Cost:</strong> $35–$55 &bull; <strong>Setup time:</strong> 30–60 min &bull; <strong
+							>Range:</strong
+						> 0.5–3 mi
+					</p>
+				</div>
+				<div class="card">
+					<span class="card-icon">🔌</span>
+					<h3>Outdoor / Wired Node</h3>
+					<p style="font-size:0.95rem; margin-bottom: 0.75rem;">
+						Radio in a weatherproof enclosure mounted outside, powered via a USB or PoE cable from
+						indoors. Best range improvement for the cost.
+					</p>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
+						<strong>Cost:</strong> $60–$120 &bull; <strong>Setup time:</strong> 2–4 hrs &bull; <strong
+							>Range:</strong
+						> 2–10+ mi
+					</p>
+				</div>
+				<div class="card">
+					<span class="card-icon">☀️</span>
+					<h3>Solar / Off-Grid Node</h3>
+					<p style="font-size:0.95rem; margin-bottom: 0.75rem;">
+						A fully self-contained node with solar panel, LiPo battery, and MPPT charge controller.
+						Can be placed anywhere with sunlight — no power outlet needed.
+					</p>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
+						<strong>Cost:</strong> $80–$200 &bull; <strong>Setup time:</strong> 4–8 hrs &bull; <strong
+							>Range:</strong
+						> 2–20+ mi
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Parts list -->
+		<section class="section">
+			<h2>What You Need</h2>
+
+			<h3 style="margin-top: 1.5rem;">The Radio</h3>
+			<p>Any LoRa radio running MeshCore or Meshtastic firmware will work. Popular options:</p>
+			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 2;">
+				<li>
+					<strong>Heltec Wireless Tracker</strong> — compact, built-in display &amp; GPS, good all-around pick
+					($35–$45)
+				</li>
+				<li>
+					<strong>Heltec V3</strong> — very popular, built-in OLED display, widely supported ($25–$35)
+				</li>
+				<li>
+					<strong>LilyGo T-Beam Supreme</strong> — GPS built-in, large battery, best for mobile use ($45–$65)
+				</li>
+				<li>
+					<strong>RAK WisBlock 4631</strong> — modular, designed for outdoor enclosure builds ($40–$60)
+				</li>
+				<li>
+					<strong>Seeed SenseCAP T1000-E</strong> — credit-card sized, very rugged, minimal setup ($50–$60)
+				</li>
+			</ul>
+			<p class="text-muted">
+				All of the above use SX1262 LoRa chips and support the US 915 MHz band. Avoid older SX1276-based
+				boards (Heltec V1/V2, TTGO LoRa32 v1) for new builds — they have worse sensitivity.
+			</p>
+
+			<h3 style="margin-top: 2rem;">Antenna</h3>
+			<p>
+				See the <a href="/coverage">Coverage &amp; Antennas</a> page for a full breakdown. For most fixed nodes,
+				any <strong>3–5 dBi 915 MHz fiberglass omni antenna</strong> is a good choice ($10–$25 on Amazon). Make
+				sure the connector matches your radio (usually RP-SMA or SMA female).
+			</p>
+
+			<h3 style="margin-top: 2rem;">Enclosure (outdoor builds)</h3>
+			<p>For outdoor use your radio must be protected from moisture. Common options:</p>
+			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 2;">
+				<li>
+					<strong>IP67 ABS junction box</strong> — cheap and widely available, comes in sizes to fit most boards.
+					Use cable glands for wire entry.
+				</li>
+				<li>
+					<strong>Hammond 1550Z series</strong> — quality aluminum enclosure, great for solar builds with DIN
+					rail inside.
+				</li>
+				<li>
+					<strong>3D-printed enclosures</strong> — community members share designs. PETG or ASA plastic handles
+					outdoor UV and temperature. Ask on Discord.
+				</li>
+				<li>
+					<strong>Commercial outdoor IoT cases</strong> — RAK makes enclosures designed specifically for their
+					WisBlock modules.
+				</li>
+			</ul>
+
+			<h3 style="margin-top: 2rem;">Power</h3>
+			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
+				<li>
+					<strong>Indoor / wired:</strong> Any 5V USB power adapter. A small power bank can add hours of backup.
+				</li>
+				<li>
+					<strong>Solar:</strong> A 6–10W solar panel, a 2000–5000 mAh LiPo battery, and a small MPPT solar
+					charge controller (e.g., CN3791-based modules). Many radios include a built-in LiPo connector — pair
+					with an 18650 cell for great runtime.
+				</li>
+			</ul>
+
+			<div
+				class="card"
+				style="margin-top: 1.5rem; background-color: oklch(22% 0.06 232.69); border-color: var(--clr-primary-darker);"
+			>
+				<h3 style="color: var(--clr-primary);">💬 Community tip</h3>
+				<p style="margin-bottom: 0;">
+					The Madison Mesh Discord has a <strong>#hardware</strong> channel where members share their specific
+					builds, enclosure choices, and what's working well in Wisconsin's climate. If you're unsure what
+					to buy, ask there first!
+				</p>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Step by step build -->
+		<section class="section">
+			<h2>Building an Outdoor Wired Node (Step by Step)</h2>
+			<p>
+				This is the build we recommend for most community members who want to make a real impact on network
+				coverage. It's more capable than an indoor node but doesn't require solar.
+			</p>
+
+			<div class="steps">
+				<div class="step">
+					<div class="step-number">1</div>
+					<div class="step-body">
+						<h3>Flash firmware</h3>
+						<p>
+							Before boxing everything up, flash and configure your radio indoors first. See the
+							<a href="/getting-started">Getting Started</a> guide for firmware flashing instructions.
+							Test that it connects to the Madison Mesh channel and can see other nodes.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">2</div>
+					<div class="step-body">
+						<h3>Prepare the enclosure</h3>
+						<p>
+							Drill or cut holes for the antenna connector and USB cable entry. Use cable glands to
+							seal around any wire penetrations. Silicone sealant around edges can add extra
+							weather protection. Avoid drilling on the top of the box — drill on the bottom or
+							sides so water doesn't collect around entries.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">3</div>
+					<div class="step-body">
+						<h3>Mount the radio inside</h3>
+						<p>
+							Secure the radio inside the box using double-sided foam tape, a 3D-printed bracket,
+							or short standoffs. Leave enough slack in the antenna pigtail to close the box
+							easily. Add a desiccant packet to absorb any moisture that sneaks in.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">4</div>
+					<div class="step-body">
+						<h3>Mount the enclosure and antenna</h3>
+						<p>
+							Mount the box to a mast, pole, eave, or wall using U-bolts, hose clamps, or stainless
+							screws. Mount the antenna with its base at or above the roofline — the higher, the
+							better. Keep the antenna coax run as short as possible.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">5</div>
+					<div class="step-body">
+						<h3>Run power and test</h3>
+						<p>
+							Run a USB cable from the node to an indoor USB adapter. Weatherproof any exterior
+							cable runs with UV-resistant zip ties and conduit if needed. Power on, confirm
+							connection to other nodes, and you're live!
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<section class="section">
+			<h2>Node configuration tips</h2>
+			<p>
+				Once your node is online, set it to the correct <strong>role</strong> for its purpose:
+			</p>
+			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
+				<li><strong>Client</strong> — for handheld or personal nodes you actively use to send messages.</li>
+				<li>
+					<strong>Router</strong> — for fixed nodes that relay traffic. Uses minimal battery and prioritizes
+					routing. Best for rooftop nodes.
+				</li>
+				<li>
+					<strong>Router/Client</strong> — for a fixed node where you also want to send messages occasionally.
+				</li>
+			</ul>
+			<p>
+				For MeshCore, similar roles exist under different names — ask in the Discord for current guidance on
+				the Madison Mesh configuration.
+			</p>
+			<a
+				href="https://discord.gg/fd3JUZc2CN"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn btn-primary"
+			>
+				Ask questions on Discord &rarr;
+			</a>
+		</section>
+	</div>
+</Layout>

@@ -1,0 +1,260 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Coverage & Antennas"
+	description="Learn how LoRa mesh coverage works in Madison, how to maximize your node's range, and which antennas to use."
+>
+	<div class="container">
+		<section class="section" style="padding-top: 2rem;">
+			<h1>Coverage &amp; Antennas</h1>
+			<p>
+				LoRa (Long Range) radio operates with surprising reach on very low power &mdash; but range depends
+				heavily on your antenna, height, and terrain. This page explains how coverage works in Madison and
+				how to get the most out of your node.
+			</p>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- How LoRa coverage works -->
+		<section class="section">
+			<h2>How LoRa Coverage Works</h2>
+			<p>
+				LoRa uses a spread-spectrum modulation technique on the 915 MHz ISM band (in North America) that
+				allows signals to reach far further than Wi-Fi or Bluetooth. In ideal conditions, a node placed in
+				an elevated location can span <strong>10–30 miles</strong>. A node sitting on a desk indoors may
+				only reach a few blocks.
+			</p>
+
+			<div class="card-grid">
+				<div class="card">
+					<span class="card-icon">📶</span>
+					<h3>Line of Sight</h3>
+					<p>
+						LoRa performs best when there's an unobstructed path between nodes. Hills, buildings, and
+						dense trees all reduce range. Even a few feet of extra elevation can dramatically improve
+						coverage.
+					</p>
+				</div>
+				<div class="card">
+					<span class="card-icon">🏙️</span>
+					<h3>Urban Environments</h3>
+					<p>
+						In a city like Madison, buildings degrade range significantly. Most nodes can reliably
+						reach 0.5–3 miles urban, or 2–10 miles from a rooftop or elevated location.
+					</p>
+				</div>
+				<div class="card">
+					<span class="card-icon">🔁</span>
+					<h3>Mesh Relaying</h3>
+					<p>
+						The power of mesh is that each node forwards messages for others. Even if two nodes can't
+						see each other directly, they can communicate through intermediate nodes in the network.
+					</p>
+				</div>
+				<div class="card">
+					<span class="card-icon">☀️</span>
+					<h3>Weather &amp; Season</h3>
+					<p>
+						LoRa range is relatively immune to rain but Wisconsin's terrain and foliage density in
+						summer can reduce effective range. Winter (bare trees) often improves coverage noticeably.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Madison-specific notes -->
+		<section class="section">
+			<h2>Coverage in the Madison Area</h2>
+			<p>
+				Madison's geography is helpful for mesh networking. The isthmus between the two lakes creates
+				natural elevation gradients, and the surrounding hills and bluffs can support nodes that cover large
+				portions of the city from a single location.
+			</p>
+
+			<div class="steps">
+				<div class="step">
+					<div class="step-number">💡</div>
+					<div class="step-body">
+						<h3>Best placement: rooftops and upper floors</h3>
+						<p>
+							Nodes placed on rooftops or in upper-floor windows dramatically outperform
+							ground-level placements. Even getting above the treeline makes a meaningful
+							difference. If you can see the Capitol dome from your location, you likely have
+							excellent coverage potential.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">💡</div>
+					<div class="step-body">
+						<h3>Gaps in coverage</h3>
+						<p>
+							Currently the network is thinner on Madison's west and east sides, and in many
+							surrounding towns. If you're in Fitchburg, Monona, Middleton, Sun Prairie, or Verona
+							— you're in a great position to add needed coverage.
+							<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer"
+								>Ask on Discord</a
+							>
+							for the current coverage map.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">💡</div>
+					<div class="step-body">
+						<h3>Check existing nodes first</h3>
+						<p>
+							Before setting up a new node, try turning one on and seeing if you connect to any
+							existing nodes nearby. Meshtastic users can view live node maps at
+							<a href="https://meshmap.net/" target="_blank" rel="noopener noreferrer"
+								>meshmap.net</a
+							>. MeshCore users can check with the community in our Discord.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Antennas -->
+		<section class="section">
+			<h2>Choosing an Antenna</h2>
+			<p>
+				The stock antenna that comes with most LoRa radios is adequate for portable use but a significant
+				upgrade is available for fixed nodes. Here are the main types:
+			</p>
+
+			<div class="card-grid">
+				<div class="card">
+					<h3>Stock Stub Antenna</h3>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0.5rem;">~2 dBi gain</p>
+					<p style="font-size:0.95rem;">
+						The small antenna included with most radios. Fine for portable use or to see if nodes are
+						nearby. <strong>Not recommended for fixed nodes</strong> — replace with any of the options below.
+					</p>
+				</div>
+				<div class="card">
+					<h3>Whip / Fiberglass Omni</h3>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0.5rem;">3–6 dBi gain</p>
+					<p style="font-size:0.95rem;">
+						A good general-purpose upgrade. Sends signal in all horizontal directions equally. Great
+						for nodes that need to connect to neighbors on multiple sides. Look for N-type or
+						SMA-connector models designed for 915 MHz.
+					</p>
+				</div>
+				<div class="card">
+					<h3>Yagi / Directional</h3>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0.5rem;">8–15+ dBi gain</p>
+					<p style="font-size:0.95rem;">
+						Focuses signal in one direction. Very useful for long-distance point-to-point links (e.g.,
+						bridging between neighborhoods). Not ideal as the only antenna on a relay node.
+					</p>
+				</div>
+				<div class="card">
+					<h3>Magnetic Mount / Mobile</h3>
+					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0.5rem;">2–5 dBi gain</p>
+					<p style="font-size:0.95rem;">
+						Designed for vehicles. The metal car roof acts as a ground plane and boosts performance.
+						Great for mobile nodes used while driving around Madison.
+					</p>
+				</div>
+			</div>
+
+			<div
+				class="card"
+				style="margin-top: 1.5rem; background-color: oklch(22% 0.06 232.69); border-color: var(--clr-primary-darker);"
+			>
+				<h3 style="color: var(--clr-primary);">⚡ Quick upgrade recommendation</h3>
+				<p style="margin-bottom: 0;">
+					For most fixed home nodes, swap the stock antenna for a <strong
+						>3–5 dBi 915 MHz omni antenna</strong
+					>
+					with an appropriate SMA or N-type connector. The Taoglas FXP73, Linx ANT-916-CW-RCI, and various
+					no-name fiberglass options on Amazon all work well for $10–25. Make sure you buy one rated for <strong
+						>915 MHz</strong
+					> — not 868 MHz (European) or 433 MHz.
+				</p>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<!-- Antenna cables and connectors -->
+		<section class="section">
+			<h2>Cables, Adapters &amp; Placement</h2>
+
+			<div class="steps">
+				<div class="step">
+					<div class="step-number">1</div>
+					<div class="step-body">
+						<h3>Keep coax cable short</h3>
+						<p>
+							RF signal is lost in coax cable. Use the shortest cable possible — ideally under 10
+							feet for low-cost RG174/RG316 coax. If you need a long run, use higher-quality
+							LMR-200 or LMR-400 cable to reduce loss, or consider mounting the radio close to the
+							antenna and using a long USB/power cable instead.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">2</div>
+					<div class="step-body">
+						<h3>Common connectors</h3>
+						<p>
+							Most small LoRa boards use <strong>U.FL / IPEX</strong> or <strong>RP-SMA</strong> connectors.
+							Many outdoor fiberglass antennas terminate in <strong>N-type</strong>. Be sure to
+							check your specific radio's connector type before buying an antenna or pigtail.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">3</div>
+					<div class="step-body">
+						<h3>Vertical polarization</h3>
+						<p>
+							Mount your antenna vertically (pointing straight up). Both ends of a link should use
+							the same polarization — mixing vertical and horizontal can cost you 20+ dB of signal
+							loss.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">4</div>
+					<div class="step-body">
+						<h3>Windows vs. exterior</h3>
+						<p>
+							A node inside a window loses some signal through the glass and frame. An antenna
+							mounted outside on a pole or eave is always better. If running a cable outside is not
+							possible, place the node in the highest window facing the most open direction.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<section class="section">
+			<h2>Want help with your setup?</h2>
+			<p>
+				Coverage and RF questions are a common topic in our Discord. Members can help with antenna
+				selection, placement ideas, and tell you whether existing nodes are likely in range of your
+				location.
+			</p>
+			<a
+				href="https://discord.gg/fd3JUZc2CN"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn btn-primary"
+			>
+				Ask in Discord &rarr;
+			</a>
+		</section>
+	</div>
+</Layout>
