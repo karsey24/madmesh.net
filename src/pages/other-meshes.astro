@@ -1,0 +1,209 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const midwestMeshes = [
+	{
+		name: "Chicagoland Mesh",
+		location: "Chicago, Illinois",
+		description:
+			"One of the largest mesh communities in the Midwest. Great source for hardware tips and large-scale network building.",
+		url: "https://chicagolandmesh.org/",
+	},
+	{
+		name: "Iowa Mesh",
+		location: "Iowa",
+		description: "Group representing mesh communities across the entire state of Iowa.",
+		url: "https://iowamesh.net/",
+	},
+	{
+		name: "Michigan Mesh",
+		location: "Michigan",
+		description: "Active mesh communities across Michigan, especially in the Detroit and Grand Rapids areas.",
+		url: "https://michmesh.com/",
+	},
+	{
+		name: "MSPMesh",
+		location: "Minnesota",
+		description: "Rapidly-growing mesh community in the Twin Cities region and across greater Minnesota.",
+		url: "https://mspmesh.org/",
+	},
+	{
+		name: "Hoosier Mesh",
+		location: "Indiana",
+		description: "Community-powered connectivity for Indiana.",
+		url: "https://hoosiermesh.org/",
+	},
+];
+
+const otherNotableMeshes = [
+	{
+		name: "Austin Mesh",
+		location: "Austin, TX",
+		url: "https://www.austinmesh.org/",
+		description: "The original inspiration for Madison Mesh with excellent documentation.",
+	},
+	{ name: "bayme.sh", location: "San Francisco Bay Area, CA", url: "https://bayme.sh/", description: "" },
+	{ name: "Denver Mesh", location: "Denver, CO", url: "https://denvermesh.org/", description: "" },
+	{ name: "DFW / North Texas Mesh", location: "North Texas", url: "https://ntxmesh.com/", description: "" },
+	{ name: "NC Mesh", location: "North Carolina", url: "https://ncmesh.net/", description: "" },
+	{ name: "Mesh Oregon", location: "Portland, OR", url: "https://meshoregon.com/", description: "" },
+	{
+		name: "Puget Mesh",
+		location: "Seattle, WA",
+		url: "https://pugetmesh.org/",
+		description: "One of the largest mesh communities in the world.",
+	},
+	{
+		name: "YYC Mesh",
+		location: "Calgary, AB (Canada)",
+		url: "https://yycmesh.com/",
+		description: "Check out their website for helpful build guides.",
+	},
+	{
+		name: "Meshtastic.org's list of communities",
+		location: "Global",
+		url: "https://meshtastic.org/docs/community/local-groups/",
+		description:
+			"Every other known mesh community around the world, big and small, compiled by the Meshtastic project.",
+	},
+];
+---
+
+<Layout title="Other Meshes" description="Links to other notable mesh networks.">
+	<div class="container">
+		<section class="section">
+			<h1>Other Meshes</h1>
+			<div class="card-grid">
+				<div class="card card-highlight">
+					<span class="card-badge">Our State Network</span>
+					<h3>
+						<a href="https://meshconsin.org/" target="_blank" rel="noopener noreferrer">Meshconsin</a>
+					</h3>
+					<p>
+						Our friends across the rest of the state and the best statewide coordination hub for
+						Wisconsin.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<hr class="divider" />
+
+		<section class="section">
+			<h2>Midwest Mesh Networks</h2>
+			<p class="text-muted" style="margin-bottom: 1.5rem;">
+				Communities in and around the Great Lakes region.
+			</p>
+
+			<div class="card-grid">
+				{
+					midwestMeshes.map((mesh) => (
+						<div class={`card${mesh.highlight ? " card-highlight" : ""}`}>
+							<h3>
+								<a href={mesh.url} target="_blank" rel="noopener noreferrer">
+									{mesh.name}
+								</a>
+							</h3>
+							<p class="text-muted" style="margin-bottom: 0.5rem; font-size: 0.85rem;">
+								{mesh.location}
+							</p>
+							<p style="font-size: 0.95rem; margin-bottom: 0;">{mesh.description}</p>
+						</div>
+					))
+				}
+			</div>
+
+			<h3 style="margin-top: 2.25rem;">Other Notable Networks</h3>
+			<table class="mesh-table">
+				<thead>
+					<tr>
+						<th>Network</th>
+						<th>Location</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					{
+						otherNotableMeshes.map((mesh) => (
+							<tr>
+								<td>
+									<a href={mesh.url} target="_blank" rel="noopener noreferrer">
+										{mesh.name}
+									</a>
+								</td>
+								<td class="text-muted" style="font-size:0.9rem;">
+									{mesh.location}
+								</td>
+								<td style="font-size:0.9rem;">{mesh.description}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</section>
+	</div>
+</Layout>
+
+<style>
+	.card-highlight {
+		border-color: var(--clr-primary);
+		background-color: oklch(22% 0.06 232.69);
+		position: relative;
+	}
+
+	.card-badge {
+		display: inline-block;
+		background-color: var(--clr-primary);
+		color: var(--clr-neutral);
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		padding: 0.15rem 0.5rem;
+		border-radius: 999px;
+		margin-bottom: 0.75rem;
+	}
+
+	.mesh-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+	}
+
+	.mesh-table thead tr {
+		border-bottom: 2px solid var(--clr-neutral-border);
+	}
+
+	.mesh-table th {
+		text-align: left;
+		padding: 0.5rem 0.75rem;
+		color: oklch(65% 0.005 271);
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-weight: 600;
+	}
+
+	.mesh-table td {
+		padding: 0.65rem 0.75rem;
+		vertical-align: top;
+		border-bottom: 1px solid var(--clr-neutral-border);
+		color: var(--clr-light);
+	}
+
+	.mesh-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.mesh-table a {
+		color: var(--clr-primary);
+		font-weight: 500;
+	}
+
+	@media (max-width: 640px) {
+		.mesh-table th:last-child,
+		.mesh-table td:last-child {
+			display: none;
+		}
+	}
+</style>

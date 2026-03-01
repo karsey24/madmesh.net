@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import treeNodeHangingOrum from "../assets/tree-node-hanging-Orum.jpg";
+import treeNodeHangingW1SCO from "../assets/tree-node-hanging-W1SCO.jpg";
 ---
 
 <Layout
@@ -7,12 +9,12 @@ import Layout from "../layouts/Layout.astro";
 	description="Learn how to build a Madison Mesh node — from choosing hardware and enclosures to solar power and secure mounting."
 >
 	<div class="container">
-		<section class="section" style="padding-top: 2rem;">
+		<section class="section">
 			<h1>Build a Node</h1>
 			<p>
 				A "node" is just a LoRa radio with the right firmware, a good antenna, and a power source. You can
 				have a basic indoor node running in under an hour, or build a weatherproof solar-powered outdoor
-				node that runs for years with no maintenance.
+				node that runs for years with no maintenance. Many amazing pre-built options are also available.
 			</p>
 			<p>This page covers common builds from simplest to most capable. Start wherever makes sense for you.</p>
 		</section>
@@ -32,9 +34,9 @@ import Layout from "../layouts/Layout.astro";
 						upper-floor window with the stock or a short external antenna.
 					</p>
 					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
-						<strong>Cost:</strong> $35–$55 &bull; <strong>Setup time:</strong> 30–60 min &bull; <strong
-							>Range:</strong
-						> 0.5–3 mi
+						<strong>Cost:</strong> $15–$50 &bull; <strong>Range:</strong> 0.5–3 mi &bull; <strong
+							>Resilience:</strong
+						> Low; vulnerable to cats and power outages
 					</p>
 				</div>
 				<div class="card">
@@ -45,9 +47,9 @@ import Layout from "../layouts/Layout.astro";
 						indoors. Best range improvement for the cost.
 					</p>
 					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
-						<strong>Cost:</strong> $60–$120 &bull; <strong>Setup time:</strong> 2–4 hrs &bull; <strong
-							>Range:</strong
-						> 2–10+ mi
+						<strong>Cost:</strong> $50+ &bull; <strong>Range:</strong> 2–10+ mi &bull; <strong
+							>Resilience:</strong
+						> Strong to weather, but vulnerable to power outages
 					</p>
 				</div>
 				<div class="card">
@@ -58,9 +60,8 @@ import Layout from "../layouts/Layout.astro";
 						Can be placed anywhere with sunlight — no power outlet needed.
 					</p>
 					<p class="text-muted" style="font-size:0.85rem; margin-bottom: 0;">
-						<strong>Cost:</strong> $80–$200 &bull; <strong>Setup time:</strong> 4–8 hrs &bull; <strong
-							>Range:</strong
-						> 2–20+ mi
+						<strong>Cost:</strong> $30+ &bull; <strong>Range:</strong> 2–10+ mi &bull;
+						<strong>Resilience:</strong> Strong to weather and power outages
 					</p>
 				</div>
 			</div>
@@ -73,67 +74,82 @@ import Layout from "../layouts/Layout.astro";
 			<h2>What You Need</h2>
 
 			<h3 style="margin-top: 1.5rem;">The Radio</h3>
-			<p>Any LoRa radio running MeshCore or Meshtastic firmware will work. Popular options:</p>
+			<p>For solar nodes, choose the most power-efficient options first. Recommended order:</p>
 			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 2;">
 				<li>
-					<strong>Heltec Wireless Tracker</strong> — compact, built-in display &amp; GPS, good all-around pick
-					($35–$45)
+					Rak Meshtastic Starter Kit (<a
+						href="https://store.rokland.com/products/rak-wireless-wisblock-meshtastic-starter-kit#"
+						target="_blank">regular</a
+					> and <a
+						href="https://store.rokland.com/products/rakwireless-mini-meshtastic-starter-kit-us915-rak19003-4631-sku-115093"
+						target="_blank">mini</a
+					>)
 				</li>
 				<li>
-					<strong>Heltec V3</strong> — very popular, built-in OLED display, widely supported ($25–$35)
+					<a
+						href="https://www.seeedstudio.com/XIAO-nRF52840-Wio-SX1262-Kit-for-Meshtastic-p-6400.html"
+						target="_blank">Seeed XIAO nRF52840 &amp; Wio-SX1262 Kit</a
+					>
 				</li>
 				<li>
-					<strong>LilyGo T-Beam Supreme</strong> — GPS built-in, large battery, best for mobile use ($45–$65)
-				</li>
-				<li>
-					<strong>RAK WisBlock 4631</strong> — modular, designed for outdoor enclosure builds ($40–$60)
-				</li>
-				<li>
-					<strong>Seeed SenseCAP T1000-E</strong> — credit-card sized, very rugged, minimal setup ($50–$60)
+					<a href="https://heltec.org/project/mesh-node-t114/" target="_blank">Heltec T114</a>
 				</li>
 			</ul>
 			<p class="text-muted">
-				All of the above use SX1262 LoRa chips and support the US 915 MHz band. Avoid older SX1276-based
-				boards (Heltec V1/V2, TTGO LoRa32 v1) for new builds — they have worse sensitivity.
+				For non-solar nodes, use <a href="https://heltec.org/project/wifi-lora-32-v4/" target="_blank"
+					>Heltec V4</a
+				>.
 			</p>
 
 			<h3 style="margin-top: 2rem;">Antenna</h3>
 			<p>
-				See the <a href="/coverage">Coverage &amp; Antennas</a> page for a full breakdown. For most fixed nodes,
-				any <strong>3–5 dBi 915 MHz fiberglass omni antenna</strong> is a good choice ($10–$25 on Amazon). Make
-				sure the connector matches your radio (usually RP-SMA or SMA female).
+				See the <a href="/coverage">Coverage &amp; Antennas</a> page for a full breakdown, or visit the
+				<a href="https://meshtastic.org/docs/hardware/antennas/">Meshtastic Antennas Guide</a> for specific model
+				recommendations. For most fixed nodes, any <strong>3–5 dBi 915 MHz fiberglass omni antenna </strong> is
+				a good choice ($10–$25 on Amazon). Make sure the connector matches your radio (usually RP-SMA or SMA female).
 			</p>
 
 			<h3 style="margin-top: 2rem;">Enclosure (outdoor builds)</h3>
-			<p>For outdoor use your radio must be protected from moisture. Common options:</p>
+			<p class="reduced-bottom">For outdoor use your radio must be protected from moisture. Common options:</p>
 			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 2;">
 				<li>
-					<strong>IP67 ABS junction box</strong> — cheap and widely available, comes in sizes to fit most boards.
-					Use cable glands for wire entry.
+					<a
+						href="https://www.amazon.com/TICONN-Waterproof-Electrical-Junction-Enclosure/dp/B0BZR3GZ4V?th=1"
+						>TICONN ABS junction box</a
+					>: cheap and widely available, comes in sizes to fit most boards. Use cable glands for wire
+					entry.
 				</li>
 				<li>
-					<strong>Hammond 1550Z series</strong> — quality aluminum enclosure, great for solar builds with DIN
-					rail inside.
+					<a
+						href="https://www.instructables.com/Meshtastic-Harbor-Breeze-Solar-Node/"
+						target="_blank"
+						rel="noopener noreferrer">Meshtastic Harbor Breeze Solar Node</a
+					>: a popular DIY solar node design with 3D-printed parts and off-the-shelf components. Great
+					for stealthy, HOA-compliant builds.
 				</li>
 				<li>
-					<strong>3D-printed enclosures</strong> — community members share designs. PETG or ASA plastic handles
-					outdoor UV and temperature. Ask on Discord.
+					<strong>3D-printed enclosures</strong>: community members share designs. PETG or ASA plastic
+					handles outdoor UV and temperature. Take extra precautions to ensure these are fully sealed
+					against water ingress.
 				</li>
 				<li>
-					<strong>Commercial outdoor IoT cases</strong> — RAK makes enclosures designed specifically for their
-					WisBlock modules.
+					<strong>Commercial outdoor IoT cases</strong>: RAK makes enclosures designed specifically for
+					their WisBlock modules, and other companies make similar cases for popular boards.
+					<a href="https://www.iot-bots.com/" target="_blank" rel="noopener noreferrer">iot-bots.com</a>
+					is a good source for these.
 				</li>
 			</ul>
 
 			<h3 style="margin-top: 2rem;">Power</h3>
 			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
 				<li>
-					<strong>Indoor / wired:</strong> Any 5V USB power adapter. A small power bank can add hours of backup.
+					<strong>Indoor / wired:</strong> Any 5V USB power adapter. A small lithium battery can add hours
+					of backup.
 				</li>
 				<li>
-					<strong>Solar:</strong> A 6–10W solar panel, a 2000–5000 mAh LiPo battery, and a small MPPT solar
-					charge controller (e.g., CN3791-based modules). Many radios include a built-in LiPo connector — pair
-					with an 18650 cell for great runtime.
+					<strong>Solar:</strong> A 3–10W solar panel, a 2000–10000 mAh Li-Ion or LiFePo4 battery, and a small
+					MPPT solar charge controller (e.g., CN3791-based modules). Most radios have a built-in charging circuit,
+					however, the charging speed is often slow.
 				</li>
 			</ul>
 
@@ -143,7 +159,7 @@ import Layout from "../layouts/Layout.astro";
 			>
 				<h3 style="color: var(--clr-primary);">💬 Community tip</h3>
 				<p style="margin-bottom: 0;">
-					The Madison Mesh Discord has a <strong>#hardware</strong> channel where members share their specific
+					The Madison Mesh Discord has a <strong>#building</strong> channel where members share their specific
 					builds, enclosure choices, and what's working well in Wisconsin's climate. If you're unsure what
 					to buy, ask there first!
 				</p>
@@ -154,10 +170,11 @@ import Layout from "../layouts/Layout.astro";
 
 		<!-- Step by step build -->
 		<section class="section">
-			<h2>Building an Outdoor Wired Node (Step by Step)</h2>
+			<h2>Building an Outdoor Node (Step by Step)</h2>
 			<p>
 				This is the build we recommend for most community members who want to make a real impact on network
-				coverage. It's more capable than an indoor node but doesn't require solar.
+				coverage. It's more capable than an indoor node, and can run indefinitely if set up with solar
+				power.
 			</p>
 
 			<div class="steps">
@@ -179,8 +196,8 @@ import Layout from "../layouts/Layout.astro";
 						<p>
 							Drill or cut holes for the antenna connector and USB cable entry. Use cable glands to
 							seal around any wire penetrations. Silicone sealant around edges can add extra
-							weather protection. Avoid drilling on the top of the box — drill on the bottom or
-							sides so water doesn't collect around entries.
+							weather protection. Avoid drilling on the top of the box, as water may eventually
+							drip inside. Drill on the bottom or sides so water doesn't collect around entries.
 						</p>
 					</div>
 				</div>
@@ -192,30 +209,62 @@ import Layout from "../layouts/Layout.astro";
 							Secure the radio inside the box using double-sided foam tape, a 3D-printed bracket,
 							or short standoffs. Leave enough slack in the antenna pigtail to close the box
 							easily. Add a desiccant packet to absorb any moisture that sneaks in.
+							<br />
+							<br />
+							<i
+								>Warning: Some adhesives are strong and can pull components off of the PCB if
+								removed later.</i
+							>
 						</p>
 					</div>
 				</div>
 				<div class="step">
 					<div class="step-number">4</div>
 					<div class="step-body">
-						<h3>Mount the enclosure and antenna</h3>
+						<h3>Connect power and test</h3>
 						<p>
-							Mount the box to a mast, pole, eave, or wall using U-bolts, hose clamps, or stainless
-							screws. Mount the antenna with its base at or above the roofline — the higher, the
-							better. Keep the antenna coax run as short as possible.
+							<strong
+								>Check the polarity of ALL power connections, and never solder or connect wires
+								while any power is plugged in.</strong
+							> Test your solar panel in direct sunlight with a multimeter to confirm it's putting out
+							the expected voltage before connecting it to your radio. Rak WisBlock boards cannot exceed
+							5.5V on the solar input, for example. Once you are certain that the voltage and polarity
+							are correct, connect your power source and test that the node powers on and connects to
+							another node. If using solar, make sure the battery is charging properly.
 						</p>
 					</div>
 				</div>
 				<div class="step">
 					<div class="step-number">5</div>
 					<div class="step-body">
-						<h3>Run power and test</h3>
+						<h3>Mount the enclosure and antenna</h3>
 						<p>
-							Run a USB cable from the node to an indoor USB adapter. Weatherproof any exterior
-							cable runs with UV-resistant zip ties and conduit if needed. Power on, confirm
-							connection to other nodes, and you're live!
+							Now that you know your radio is function, strategically locate a spot to mount your
+							radio. Be sure to account for future wind and snow loads! Mount the box to a mast,
+							pole, eave, or wall using U-bolts, hose clamps, zip ties, or stainless screws. Mount
+							the antenna with its base at or above the roofline — the higher, the better. Keep the
+							antenna coax run as short as possible.
 						</p>
 					</div>
+				</div>
+			</div>
+
+			<div class="card-grid" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+				<div class="card" style="padding: 0.75rem;">
+					<img
+						src={treeNodeHangingOrum.src}
+						alt="Tree-mounted mesh node enclosure"
+						loading="lazy"
+						style="display: block; width: 100%; height: auto; border-radius: 8px;"
+					/>
+				</div>
+				<div class="card" style="padding: 0.75rem;">
+					<img
+						src={treeNodeHangingW1SCO.src}
+						alt="Hanging outdoor mesh node installed in a tree"
+						loading="lazy"
+						style="display: block; width: 100%; height: auto; border-radius: 8px;"
+					/>
 				</div>
 			</div>
 		</section>
@@ -228,7 +277,9 @@ import Layout from "../layouts/Layout.astro";
 				Once your node is online, set it to the correct <strong>role</strong> for its purpose:
 			</p>
 			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
-				<li><strong>Client</strong> — for handheld or personal nodes you actively use to send messages.</li>
+				<li>
+					<strong>Client</strong> — for handheld or personal nodes you actively use to send messages.
+				</li>
 				<li>
 					<strong>Router</strong> — for fixed nodes that relay traffic. Uses minimal battery and prioritizes
 					routing. Best for rooftop nodes.
