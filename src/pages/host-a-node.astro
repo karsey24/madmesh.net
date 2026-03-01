@@ -6,21 +6,23 @@ const faqs = [
 		q: "What exactly is the node being used for?",
 		a: `A Madison Mesh node expands a free, open-source community radio network that lets people
     send text messages across the city without using cell towers or the internet. It also
-    has applications in emergency preparedness and community resilience — if cell service
-    goes down, the mesh network keeps working.`,
+    has applications in 
+    <a href="https://www.gulfcoastnewsnow.com/article/meshtastic-stay-connected-hurricane-florida/65891447" 
+    target="_blank" rel="noopener noreferrer">emergency preparedness and community resilience</a> — if cell 
+    service goes down, the mesh network keeps working.`,
 	},
 	{
 		q: "What kind of equipment will be installed?",
-		a: `Typically a small weatherproof enclosure (roughly the size of a large deck of cards)
-    containing a microcontroller and LoRa radio chip, plus a small external antenna mounted
-    to a pole or bracket. The entire installation typically weighs under 1 pound. Some locations
-    may also include a small solar panel if a power outlet isn't available.`,
+		a: `Typically a small weatherproof enclosure (smaller than a lunchbox)
+    containing simple electronics and a battery, plus a small external antenna mounted
+    to a pole or bracket. The entire installation typically weighs under 1 pound.`,
 	},
 	{
 		q: "How will it be powered?",
-		a: `Most nodes are powered by a standard USB power adapter plugged into an existing outlet —
-    similar to a phone charger. If no outdoor outlet is available, nodes can be solar-powered
-    and completely self-sufficient. Solar nodes require no wiring into your building at all.`,
+		a: `Most nodes are powered by a solar panel and an internal battery, however some may use 
+        a standard USB power adapter plugged into an existing outlet — similar to a phone charger. If 
+        no outdoor outlet is available, nodes can be solar-powered and completely self-sufficient. 
+        Solar nodes require no wiring into your building at all.`,
 	},
 	{
 		q: "What kind of antenna will be involved?",
@@ -65,15 +67,15 @@ const faqs = [
 	},
 	{
 		q: "How long will it be there? Can I have it removed?",
-		a: `There's no required commitment. We're happy to work out a clear timeframe together, or
-    simply agree that removal can be requested at any time with reasonable notice. Removal
-    is expected to leave no permanent marks or damage to the property.`,
+		a: `That's up to you and whoever is asking to install the node. Generally, the community 
+        prefers long-term hosts who can commit to keeping the node up for at least a year. If you ever 
+        want the node removed, just let the community member know and they will take care of it promptly.`,
 	},
 	{
 		q: "Who else in Madison is hosting nodes?",
 		a: `The network is still growing! Current hosts include private residences across Madison,
-    businesses with rooftop access, and community organizations. We're especially looking
-    for hosts in elevated or less-covered parts of the city. Ask on Discord for current
+    businesses with rooftop access, amateur radio clubs, and community organizations. We're especially 
+    looking for hosts in elevated or less-covered parts of the city. Ask on Discord for current
     locations.`,
 	},
 	{
@@ -90,11 +92,11 @@ const faqs = [
 	description="Thinking about hosting a Madison Mesh node on your property? Here are answers to common questions from property owners."
 >
 	<div class="container">
-		<section class="section" style="padding-top: 2rem;">
+		<section class="section">
 			<h1>FAQ: Hosting a Node on Your Property</h1>
 			<p style="font-size: 1.1rem;">
-				Someone has asked if they can place a Madison Mesh node on your property — or maybe you're exploring
-				the idea yourself. Either way, this page covers everything a property owner would want to know. <strong
+				If someone has asked if they can place a Madison Mesh node on your property, this page covers
+				everything a property owner would want to know. <strong
 					>No technical knowledge required on your part.</strong
 				>
 			</p>
@@ -154,7 +156,7 @@ const faqs = [
 								<span class="faq-num">{i + 1}</span>
 								{item.q}
 							</h3>
-							<p class="faq-a">{item.a}</p>
+							<p class="faq-a" set:html={item.a} />
 						</div>
 					))
 				}

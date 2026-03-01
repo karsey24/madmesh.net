@@ -1,16 +1,9 @@
 ---
-import msnLogo from "../assets/msn.webp";
+import msnLogo from "../assets/logo.png";
 
 const currentPath = Astro.url.pathname;
 
-const navLinks = [
-	{ href: "/", label: "Home" },
-	{ href: "/getting-started", label: "Get Started" },
-	{ href: "/coverage", label: "Coverage" },
-	{ href: "/build-a-node", label: "Build a Node" },
-	{ href: "/host-a-node", label: "Host a Node" },
-	{ href: "/midwest-meshes", label: "Midwest Meshes" },
-];
+const isActive = (href: string) => currentPath === href || (href !== "/" && currentPath.startsWith(href));
 ---
 
 <header class="site-nav">
@@ -22,33 +15,67 @@ const navLinks = [
 
 		<nav aria-label="Main navigation">
 			<ul class="nav-links">
-				{
-					navLinks.map((link) => (
-						<li>
-							<a
-								href={link.href}
-								aria-current={
-									currentPath === link.href ||
-									(link.href !== "/" && currentPath.startsWith(link.href))
-										? "page"
-										: undefined
-								}
-							>
-								{link.label}
-							</a>
-						</li>
-					))
-				}
 				<li>
-					<a
-						href="https://meshconsin.org/"
-						target="_blank"
-						rel="noopener noreferrer"
-						title="Meshconsin — statewide Wisconsin mesh"
-					>
-						Meshconsin ↗
-					</a>
+					<a href="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</a>
 				</li>
+				<li>
+					<a href="/getting-started" aria-current={isActive("/getting-started") ? "page" : undefined}
+						>Get Started</a
+					>
+				</li>
+
+				<li class="nav-dropdown">
+					<details>
+						<summary>Guides & Info</summary>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="/coverage" aria-current={isActive("/coverage") ? "page" : undefined}
+									>Coverage</a
+								>
+							</li>
+							<li>
+								<a
+									href="/build-a-node"
+									aria-current={isActive("/build-a-node") ? "page" : undefined}
+									>Build a Node</a
+								>
+							</li>
+							<li>
+								<a
+									href="/host-a-node"
+									aria-current={isActive("/host-a-node") ? "page" : undefined}>Host a Node</a
+								>
+							</li>
+						</ul>
+					</details>
+				</li>
+
+				<li class="nav-dropdown">
+					<details>
+						<summary>Tools</summary>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="https://msn.meshmapper.net/" target="_blank" rel="noopener noreferrer"
+									>MSN MeshMapper ↗</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://www.heywhatsthat.com/"
+									target="_blank"
+									rel="noopener noreferrer">HeyWhatsThat ↗</a
+								>
+							</li>
+						</ul>
+					</details>
+				</li>
+
+				<li>
+					<a href="/other-meshes" aria-current={isActive("/other-meshes") ? "page" : undefined}
+						>Other Meshes</a
+					>
+				</li>
+
 				<li>
 					<a
 						href="https://discord.gg/fd3JUZc2CN"
@@ -74,3 +101,37 @@ const navLinks = [
 		</nav>
 	</div>
 </header>
+
+<script is:inline>
+	(() => {
+		const nav = document.querySelector(".site-nav");
+		if (!nav) return;
+
+		const dropdowns = Array.from(nav.querySelectorAll(".nav-dropdown details"));
+
+		dropdowns.forEach((current) => {
+			current.addEventListener("toggle", () => {
+				if (!current.open) return;
+				dropdowns.forEach((other) => {
+					if (other !== current) other.open = false;
+				});
+			});
+		});
+
+		document.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof Node)) return;
+			if (nav.contains(target)) return;
+			dropdowns.forEach((dropdown) => {
+				dropdown.open = false;
+			});
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (event.key !== "Escape") return;
+			dropdowns.forEach((dropdown) => {
+				dropdown.open = false;
+			});
+		});
+	})();
+</script>

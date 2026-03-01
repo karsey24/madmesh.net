@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import nodeEaveIHateComputers from "../assets/node-eave-iHateComputers.jpg";
+import outdoorNodeGutsIHateComputers from "../assets/outdoor-node-guts-iHateComputers.jpg";
+import tinyHandheldNodeCloseupOrum from "../assets/tiny-handheld-node-closeup-Orum.jpg";
 ---
 
 <Layout title="Madison Mesh" description="Building a free, community-owned mesh radio network in Madison, Wisconsin.">
@@ -7,10 +10,10 @@ import Layout from "../layouts/Layout.astro";
 	<section class="hero-banner" aria-label="Site hero">
 		<div class="hero-overlay"></div>
 		<div class="hero-content">
-			<h1>We're building a free mesh radio network in Madison</h1>
+			<h1>We're building a mesh radio network in Madison</h1>
 			<p>
 				Madison Mesh is a community of radio hobbyists connecting our city through decentralized, off-grid
-				communication technology &mdash; no cell towers or internet required.
+				communication technology <i>without</i> cell towers or internet.
 			</p>
 			<div class="hero-actions">
 				<a href="/getting-started" class="btn btn-primary">Get Started</a>
@@ -40,74 +43,69 @@ import Layout from "../layouts/Layout.astro";
 	<!-- What is Madison Mesh -->
 	<div class="container">
 		<section class="section">
-			<h2>What do we do?</h2>
+			<h1>What do we do?</h1>
 			<p>
 				Madison Mesh is a local community of hobbyists who use "mesh" radio technologies to communicate.
 				Mesh radios pass messages through a network of nodes, allowing communication without relying on
 				traditional infrastructure like cell towers or internet connections.
-			</p>
-			<p>
+				<br />
+				<br />
 				We primarily use <a href="https://meshcore.co.uk/" target="_blank" rel="noopener noreferrer"
 					>MeshCore</a
 				>
-				and <a href="https://meshtastic.org/" target="_blank" rel="noopener noreferrer">Meshtastic</a> &mdash;
-				open-source firmware platforms that run on affordable LoRa radio hardware you can buy for under $50.
+				and <a href="https://meshtastic.org/" target="_blank" rel="noopener noreferrer">Meshtastic</a>. Both
+				are open-source software that run on affordable LoRa radios you can buy for under $50.
 			</p>
 
-			<div class="card-grid">
-				<div class="card">
-					<span class="card-icon">📡</span>
-					<h3>Off-Grid Messaging</h3>
-					<p>
-						Send texts, GPS positions, and short messages across the city with no phone plan or
-						internet needed.
-					</p>
+			<hr class="divider" />
+
+			<!-- How do I join? -->
+			<section class="section">
+				<h1>How do I join?</h1>
+				<p>
+					All you need to get started is a LoRa radio ($35&ndash;$50). Visit our
+					<a href="/getting-started">Getting Started</a> guide for a full walkthrough from buying hardware
+					to sending your first message on the mesh.
+					<br />
+					<br />
+					Madison Mesh primarily uses <strong>MeshCore</strong> hardware, but we also have members on Meshtastic.
+					Both projects support a lot of the same devices, so you don&rsquo;t need to worry about picking the
+					&ldquo;right&rdquo; one upfront.
+					<br />
+					<br />
+					<strong class="text-secondary"
+						>We are actively growing the network &mdash; every new node helps! Please join us.</strong
+					>
+				</p>
+				<a href="/getting-started" class="btn btn-primary">See the Getting Started Guide &rarr;</a>
+			</section>
+
+			<div class="card-grid" style="margin-top: 1rem;">
+				<div class="card" style="padding: 0.75rem;">
+					<img
+						src={nodeEaveIHateComputers.src}
+						alt="Mounted outdoor mesh node installed along a roof eave"
+						loading="lazy"
+						style="display: block; width: 100%; height: auto; border-radius: 8px;"
+					/>
 				</div>
-				<div class="card">
-					<span class="card-icon">🔓</span>
-					<h3>Free &amp; Open</h3>
-					<p>
-						The hardware is inexpensive, the software is open-source, and there are no fees to join
-						the network.
-					</p>
+				<div class="card" style="padding: 0.75rem;">
+					<img
+						src={outdoorNodeGutsIHateComputers.src}
+						alt="A look inside an outdoor mesh node"
+						loading="lazy"
+						style="display: block; width: 100%; height: auto; border-radius: 8px;"
+					/>
 				</div>
-				<div class="card">
-					<span class="card-icon">🤝</span>
-					<h3>Community Built</h3>
-					<p>Every node added by a community member makes the network stronger and extends its reach.</p>
-				</div>
-				<div class="card">
-					<span class="card-icon">🔋</span>
-					<h3>Resilient</h3>
-					<p>
-						Because there's no central infrastructure, the network keeps working even during outages
-						or emergencies.
-					</p>
+				<div class="card" style="padding: 0.75rem;">
+					<img
+						src={tinyHandheldNodeCloseupOrum.src}
+						alt="Close-up of a tiny handheld mesh node"
+						loading="lazy"
+						style="display: block; width: 100%; height: auto; border-radius: 8px;"
+					/>
 				</div>
 			</div>
-		</section>
-
-		<hr class="divider" />
-
-		<!-- How do I join? -->
-		<section class="section">
-			<h2>How do I join?</h2>
-			<p>
-				All you need to get started is a LoRa radio ($35&ndash;$50). Visit our
-				<a href="/getting-started">Getting Started</a> guide for a full walkthrough from buying hardware to sending
-				your first message on the mesh.
-			</p>
-			<p>
-				Madison Mesh primarily uses <strong>MeshCore</strong> hardware, but we also have members on Meshtastic.
-				Both projects support a lot of the same devices, so you don&rsquo;t need to worry about picking the &ldquo;right&rdquo;
-				one upfront.
-			</p>
-			<p>
-				<strong class="text-secondary"
-					>We are actively growing the network &mdash; every new node helps! Please join us.</strong
-				>
-			</p>
-			<a href="/getting-started" class="btn btn-primary">See the Getting Started Guide &rarr;</a>
 		</section>
 	</div>
 </Layout>
