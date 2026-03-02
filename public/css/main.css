@@ -88,6 +88,10 @@ a {
     transition: color var(--transition);
 }
 
+a.no-underline {
+    text-decoration: none;
+}
+
 a:hover {
     color: var(--clr-primary-darker);
 }
@@ -553,7 +557,7 @@ a:hover {
 .divider {
     border: none;
     border-top: 1px solid var(--clr-neutral-border);
-    margin: 0;
+    margin: 2em 0;
 }
 
 .text-primary {
@@ -566,7 +570,7 @@ a:hover {
 
 .text-muted {
     color: oklch(65% 0.005 271);
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .page-header {

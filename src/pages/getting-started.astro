@@ -26,7 +26,7 @@ import handheldNodeGuts2Orum from "../assets/handheld-node-guts-2-Orum.jpg";
 							You need a LoRa radio with a compatible chip (typically Semtech SX1262 or SX1276).
 							Start with one of these options:
 						</p>
-						<p style="margin-bottom: 0.5rem;"><strong>Common portable prebuilt options:</strong></p>
+						<p class="reduced-bottom"><strong>Easy prebuilt options:</strong></p>
 						<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
 							<li>
 								<a href="https://lilygo.cc/en-us/products/t-deck" target="_blank"
@@ -52,7 +52,27 @@ import handheldNodeGuts2Orum from "../assets/handheld-node-guts-2-Orum.jpg";
 								>
 							</li>
 						</ul>
-						<p style="margin-bottom: 0.5rem;"><strong>Good boards to build around:</strong></p>
+						<p class="reduced-bottom"><strong>Easy installable options:</strong></p>
+						<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
+							<li>
+								<a
+									href="https://www.seeedstudio.com/SenseCAP-Solar-Node-P1-Pro-for-Meshtastic-LoRa-p-6412.html"
+									target="_blank">Seeed SenseCAP Solar Node P1 Pro</a
+								>
+							</li>
+							<li>
+								<a href="https://www.etsy.com/shop/peakmesh/" target="_blank"
+									>PeakMesh (many options)</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://store.rakwireless.com/products/wismesh-meshtastic-solar-repeater-mini"
+									target="_blank">RAK WisMesh Repeater Mini</a
+								>
+							</li>
+						</ul>
+						<p class="reduced-bottom"><strong>DIY Portable options:</strong></p>
 						<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
 							<li>
 								<a href="https://heltec.org/project/wifi-lora-32-v4/" target="_blank"
@@ -60,192 +80,199 @@ import handheldNodeGuts2Orum from "../assets/handheld-node-guts-2-Orum.jpg";
 								>
 							</li>
 						</ul>
+						<p>
+							<strong>DIY Installable options:</strong>
+							Check out our <a href="/build-a-node">build a node</a> guide.
+						</p>
+						<br />
 						<p class="text-muted">
-							Ask in the Discord for current community recommendations &mdash; hardware evolves
+							ℹ️ Ask in the Discord for current community recommendations &mdash; hardware evolves
 							quickly!
 						</p>
 					</div>
 				</div>
+			</div>
 
-				<hr class="divider" />
+			<hr class="divider" />
 
-				<!-- Step 2 -->
-				<div class="step">
-					<div class="step-number">2</div>
-					<div class="step-body">
-						<h3>Choose your technology</h3>
-						<p>
-							Madison Mesh currently supports two LoRa networking platforms. We recommend
-							<strong>MeshCore</strong> for reliability, especially for text messaging. Meshtastic is
-							better for smaller networks and having fun, and it's easier when starting out.
-						</p>
+			<!-- Step 2 -->
+			<div class="step">
+				<div class="step-number">2</div>
+				<div class="step-body">
+					<h3>Choose your technology</h3>
+					<p>
+						Madison Mesh currently supports two LoRa networking platforms. We recommend
+						<strong>MeshCore</strong> for reliability, especially for text messaging. Meshtastic is better
+						for smaller networks and having fun, and it's easier when starting out.
+					</p>
 
-						<div class="card-grid" style="margin-top: 1rem;">
-							<div class="card">
-								<h3 style="color: var(--clr-secondary);">MeshCore</h3>
-								<p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
-									Best for <strong>text message communication</strong>. Only repeaters
-									forward messages, which is more efficient at covering large areas and
-									results in better reliability for messaging. This is our primary network.
-								</p>
-								<p class="text-muted" style="margin-bottom: 0;">
-									<a href="https://meshcore.co.uk/" target="_blank" rel="noopener noreferrer"
-										>meshcore.co.uk &rarr;</a
-									>
-								</p>
-							</div>
-							<div class="card">
-								<h3>Meshtastic</h3>
-								<p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
-									Best for small or sparse networks. Nodes advertise more frequently, which
-									makes it easier to see new nodes come online and get started, but it
-									doesn't scale as well. Larger global community and more device options.
-								</p>
-								<p class="text-muted" style="margin-bottom: 0;">
-									<a href="https://meshtastic.org/" target="_blank" rel="noopener noreferrer"
-										>meshtastic.org &rarr;</a
-									>
-								</p>
-							</div>
-						</div>
-
-						<p style="margin-top: 1rem;" class="text-muted">
-							NOTE: Both platforms support much of the same hardware, so your radio purchase
-							generally won&rsquo;t lock you in.
-						</p>
-					</div>
-				</div>
-
-				<hr class="divider" />
-
-				<!-- Step 3 -->
-				<div class="step">
-					<div class="step-number">3</div>
-					<div class="step-body">
-						<h3>Install the firmware</h3>
-
-						<p><strong>For MeshCore:</strong></p>
-						<ol style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
-							<li>
-								Visit the <a
-									href="https://flasher.meshcore.co.uk/"
-									target="_blank"
-									rel="noopener noreferrer">MeshCore Web Flasher</a
-								> (Chrome/Edge required).
-							</li>
-							<li>Connect your device via USB and select your device model.</li>
-							<li>Follow the on-screen instructions to flash the firmware*.</li>
-							<li>
-								Then, download the <strong>MeshCore app</strong> for your phone (<a
-									href="https://apps.apple.com/gb/app/meshcore/id6742354151"
-									target="_blank"
-									rel="noopener noreferrer">iOS</a
-								> /
-								<a
-									href="https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android"
-									target="_blank"
-									rel="noopener noreferrer">Android</a
-								>) or use the desktop companion.
-							</li>
-						</ol>
-
-						<p><strong>For Meshtastic:</strong></p>
-						<ol style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
-							<li>
-								Visit the <a
-									href="https://flasher.meshtastic.org/"
-									target="_blank"
-									rel="noopener noreferrer">Meshtastic Web Flasher</a
-								>.
-							</li>
-							<li>Connect your device via USB and select your device model.</li>
-							<li>Choose the latest <strong>beta</strong> firmware.</li>
-							<li>Follow the on-screen instructions to flash the firmware*.</li>
-							<li>
-								Download the <strong>Meshtastic app</strong> for your phone (<a
-									href="https://apps.apple.com/app/meshtastic/id1586432531"
-									target="_blank"
-									rel="noopener noreferrer">iOS</a
-								> /
-								<a
-									href="https://play.google.com/store/apps/details?id=com.geeksville.mesh"
-									target="_blank"
-									rel="noopener noreferrer">Android</a
-								>).
-							</li>
-						</ol>
-					</div>
-				</div>
-
-				<hr class="divider" />
-
-				<!-- Step 4 -->
-				<div class="step">
-					<div class="step-number">4</div>
-					<div class="step-body">
-						<h3>Configure channels and connect</h3>
-						<p>
-							Open the app and pair it with your radio over Bluetooth or USB. Then join the Madison
-							Mesh channel so your device can communicate with other local nodes.
-							<br />
-							<br />
-							Make sure to select the <strong>US 915 MHz</strong> preset. We use the default settings
-							for each platform, but make sure to enter Channel 20 on Meshtastic.
-							<br />
-							<br />
-							Choose a fun name for your node. You can change this setting at any time.
-							<br />
-							<br />
-							Once configured, place your node near a window or outside for the best range. Elevation
-							makes a significant difference with LoRa antennas!
-						</p>
-					</div>
-				</div>
-
-				<hr class="divider" />
-
-				<!-- Step 5 -->
-				<div class="step">
-					<div class="step-number">5</div>
-					<div class="step-body">
-						<h3>Say hello!</h3>
-						<p>
-							Once you&rsquo;re on the network, send a message on the public channel and introduce
-							yourself. Then hop into the
-							<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer"
-								>Discord</a
-							>
-							and let us know you&rsquo;re live: we&rsquo;d love to know where new nodes pop up!
-						</p>
+					<div class="card-grid" style="margin-top: 1rem;">
 						<a
-							href="https://discord.gg/fd3JUZc2CN"
+							class="card no-underline"
+							href="https://meshcore.co.uk/"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="btn btn-primary"
 						>
-							Join the Discord &rarr;
+							<h3 style="color: var(--clr-secondary);">MeshCore</h3>
+							<p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
+								Best for <strong>text message communication</strong>. Only repeaters forward
+								messages, which is more efficient at covering large areas and results in better
+								reliability for messaging. This is our primary network.
+							</p>
+							<p class="text-muted" style="margin-bottom: 0;">meshcore.co.uk &rarr;</p>
+						</a>
+						<a
+							class="card no-underline"
+							href="https://meshtastic.org/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<h3>Meshtastic</h3>
+							<p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
+								Best for small or sparse networks. Nodes advertise more frequently, which makes
+								it easier to see new nodes come online and get started, but it doesn't scale as
+								well. Larger global community and more device options.
+							</p>
+							<p class="text-muted" style="margin-bottom: 0;">meshtastic.org &rarr;</p>
 						</a>
 					</div>
+
+					<p style="margin-top: 1rem;" class="text-muted">
+						NOTE: Both platforms support much of the same hardware, so your radio purchase generally
+						won&rsquo;t lock you in.
+					</p>
 				</div>
 			</div>
-			<div class="card-grid" style="margin-top: 1rem;">
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={handheldNodeGutsOrum.src}
-						alt="Two community members with handheld mesh nodes"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
+
+			<hr class="divider" />
+
+			<!-- Step 3 -->
+			<div class="step">
+				<div class="step-number">3</div>
+				<div class="step-body">
+					<h3>Install the firmware</h3>
+
+					<p><strong>For MeshCore:</strong></p>
+					<ol style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
+						<li>
+							Visit the <a
+								href="https://flasher.meshcore.co.uk/"
+								target="_blank"
+								rel="noopener noreferrer">MeshCore Web Flasher</a
+							> (Chrome/Edge required).
+						</li>
+						<li>Connect your device via USB and select your device model.</li>
+						<li>Follow the on-screen instructions to flash the firmware*.</li>
+						<li>
+							Then, download the <strong>MeshCore app</strong> for your phone (<a
+								href="https://apps.apple.com/gb/app/meshcore/id6742354151"
+								target="_blank"
+								rel="noopener noreferrer">iOS</a
+							> /
+							<a
+								href="https://play.google.com/store/apps/details?id=com.liamcottle.meshcore.android"
+								target="_blank"
+								rel="noopener noreferrer">Android</a
+							>) or use the desktop companion.
+						</li>
+					</ol>
+
+					<p><strong>For Meshtastic:</strong></p>
+					<ol style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem;">
+						<li>
+							Visit the <a
+								href="https://flasher.meshtastic.org/"
+								target="_blank"
+								rel="noopener noreferrer">Meshtastic Web Flasher</a
+							>.
+						</li>
+						<li>Connect your device via USB and select your device model.</li>
+						<li>Choose the latest <strong>beta</strong> firmware.</li>
+						<li>Follow the on-screen instructions to flash the firmware*.</li>
+						<li>
+							Download the <strong>Meshtastic app</strong> for your phone (<a
+								href="https://apps.apple.com/app/meshtastic/id1586432531"
+								target="_blank"
+								rel="noopener noreferrer">iOS</a
+							> /
+							<a
+								href="https://play.google.com/store/apps/details?id=com.geeksville.mesh"
+								target="_blank"
+								rel="noopener noreferrer">Android</a
+							>).
+						</li>
+					</ol>
 				</div>
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={handheldNodeGuts2Orum.src}
-						alt="Community members testing handheld nodes"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
+			</div>
+
+			<hr class="divider" />
+
+			<!-- Step 4 -->
+			<div class="step">
+				<div class="step-number">4</div>
+				<div class="step-body">
+					<h3>Configure channels and connect</h3>
+					<p>
+						Open the app and pair it with your radio over Bluetooth or USB. Then join the Madison Mesh
+						channel so your device can communicate with other local nodes.
+						<br />
+						<br />
+						Make sure to select the <strong>US 915 MHz</strong> preset. We use the default settings for
+						each platform, but make sure to enter Channel 20 on Meshtastic.
+						<br />
+						<br />
+						Choose a fun name for your node. You can change this setting at any time.
+						<br />
+						<br />
+						Once configured, place your node near a window or outside for the best range. Elevation makes
+						a significant difference with LoRa antennas!
+					</p>
+				</div>
+			</div>
+
+			<hr class="divider" />
+
+			<!-- Step 5 -->
+			<div class="step">
+				<div class="step-number">5</div>
+				<div class="step-body">
+					<h3>Say hello!</h3>
+					<p>
+						Once you&rsquo;re on the network, send a message on the public channel and introduce
+						yourself. Then hop into the
+						<a href="https://discord.gg/fd3JUZc2CN" target="_blank" rel="noopener noreferrer"
+							>Discord</a
+						>
+						and let us know you&rsquo;re live: we&rsquo;d love to know where new nodes pop up!
+					</p>
+					<a
+						href="https://discord.gg/fd3JUZc2CN"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-primary"
+					>
+						Join the Discord &rarr;
+					</a>
 				</div>
 			</div>
 		</section>
+		<div class="card-grid" style="margin-top: 1rem;">
+			<div class="card" style="padding: 0.75rem;">
+				<img
+					src={handheldNodeGutsOrum.src}
+					alt="Two community members with handheld mesh nodes"
+					loading="lazy"
+					style="display: block; width: 100%; height: auto; border-radius: 8px;"
+				/>
+			</div>
+			<div class="card" style="padding: 0.75rem;">
+				<img
+					src={handheldNodeGuts2Orum.src}
+					alt="Community members testing handheld nodes"
+					loading="lazy"
+					style="display: block; width: 100%; height: auto; border-radius: 8px;"
+				/>
+			</div>
+		</div>
 	</div>
 </Layout>
