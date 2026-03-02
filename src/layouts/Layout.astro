@@ -9,10 +9,8 @@ interface Props {
 	description?: string;
 }
 
-const {
-	title = "Madison Mesh",
-	description = "Building a free, community-owned mesh radio network in Madison, Wisconsin.",
-} = Astro.props;
+const { title = "Madison Mesh", description = "Building an open mesh radio network in Madison, Wisconsin." } =
+	Astro.props;
 
 const fullTitle = title === "Madison Mesh" ? title : `${title} | Madison Mesh`;
 const isHomePage = Astro.url.pathname === "/";

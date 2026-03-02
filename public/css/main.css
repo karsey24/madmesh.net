@@ -163,6 +163,35 @@ a:hover {
     object-fit: contain;
 }
 
+.nav-toggle {
+    display: none;
+    border: 0px;
+    background-color: #0000;
+    color: var(--clr-light);
+    padding: 0.4rem;
+    cursor: pointer;
+}
+
+.nav-toggle:hover {
+    border-color: var(--clr-primary);
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+}
+
+.nav-toggle-bar + .nav-toggle-bar {
+    margin-top: 4px;
+}
+
+.nav-menu {
+    display: block;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -434,7 +463,7 @@ a:hover {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -445,10 +474,11 @@ a:hover {
     border-radius: calc(var(--border-radius) * 1.5);
     padding: 1.5rem;
     transition: border-color var(--transition), transform var(--transition);
+    min-width: 0;
 }
 
 .card-grid.card-grid-wide {
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
 }
 
 .card:hover {
@@ -635,12 +665,56 @@ svg {
    ============================ */
 
 @media (max-width: 768px) {
-    .nav-links {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+    .site-nav {
+        height: auto;
+        padding: 0.5rem 0;
     }
-    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-inner {
+        height: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .nav-brand {
+        font-size: 0.95rem;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+    }
+
+    .nav-menu.is-open {
+        display: block;
+    }
+
+    .nav-links {
+        width: 100%;
+        white-space: normal;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+    }
+
+    .nav-links > li {
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-dropdown summary {
+        font-size: 0.82rem;
+        padding: 0.3rem 0.45rem;
+        width: 100%;
+    }
 
     .dropdown-menu {
         position: static;
@@ -648,12 +722,21 @@ svg {
         min-width: 0;
         box-shadow: none;
         z-index: auto;
+        padding-left: 0.35rem;
     }
 }
 
 @media (max-width: 640px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.4rem; }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .card-grid.card-grid-wide {
+        grid-template-columns: 1fr;
+    }
 
     .footer-inner {
         grid-template-columns: 1fr;

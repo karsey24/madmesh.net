@@ -13,7 +13,29 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 			Madison Mesh
 		</a>
 
-		<nav aria-label="Main navigation">
+		<button
+			type="button"
+			class="nav-toggle"
+			aria-expanded="false"
+			aria-controls="main-nav"
+			aria-label="Toggle navigation menu"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="16"
+				height="16"
+				fill="currentColor"
+				class="bi bi-list"
+				viewBox="0 0 16 16"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+				></path>
+			</svg>
+		</button>
+
+		<nav id="main-nav" class="nav-menu" aria-label="Main navigation">
 			<ul class="nav-links">
 				<li>
 					<a href="/" aria-current={currentPath === "/" ? "page" : undefined}>Home</a>
@@ -56,14 +78,21 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 						<ul class="dropdown-menu">
 							<li>
 								<a href="https://msn.meshmapper.net/" target="_blank" rel="noopener noreferrer"
-									>MSN MeshMapper ↗</a
+									>Live MeshCore Map ↗</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://analyzer.letsmesh.net/"
+									target="_blank"
+									rel="noopener noreferrer">Live MeshCore Packet Viewer ↗</a
 								>
 							</li>
 							<li>
 								<a
 									href="https://www.heywhatsthat.com/"
 									target="_blank"
-									rel="noopener noreferrer">HeyWhatsThat ↗</a
+									rel="noopener noreferrer">LOS calculator ↗</a
 								>
 							</li>
 						</ul>
@@ -107,7 +136,26 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 		const nav = document.querySelector(".site-nav");
 		if (!nav) return;
 
+		const toggle = nav.querySelector(".nav-toggle");
+		const menu = nav.querySelector(".nav-menu");
+		if (!(toggle instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+
 		const dropdowns = Array.from(nav.querySelectorAll(".nav-dropdown details"));
+
+		const closeMenu = () => {
+			menu.classList.remove("is-open");
+			toggle.setAttribute("aria-expanded", "false");
+		};
+
+		toggle.addEventListener("click", () => {
+			const isOpen = menu.classList.toggle("is-open");
+			toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+			if (!isOpen) {
+				dropdowns.forEach((dropdown) => {
+					dropdown.open = false;
+				});
+			}
+		});
 
 		dropdowns.forEach((current) => {
 			current.addEventListener("toggle", () => {
@@ -121,7 +169,16 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 		document.addEventListener("click", (event) => {
 			const target = event.target;
 			if (!(target instanceof Node)) return;
-			if (nav.contains(target)) return;
+			if (nav.contains(target)) {
+				if (target instanceof Element && target.closest(".nav-menu a")) {
+					closeMenu();
+					dropdowns.forEach((dropdown) => {
+						dropdown.open = false;
+					});
+				}
+				return;
+			}
+			closeMenu();
 			dropdowns.forEach((dropdown) => {
 				dropdown.open = false;
 			});
@@ -129,9 +186,16 @@ const isActive = (href: string) => currentPath === href || (href !== "/" && curr
 
 		document.addEventListener("keydown", (event) => {
 			if (event.key !== "Escape") return;
+			closeMenu();
 			dropdowns.forEach((dropdown) => {
 				dropdown.open = false;
 			});
+		});
+
+		window.addEventListener("resize", () => {
+			if (window.innerWidth > 768) {
+				closeMenu();
+			}
 		});
 	})();
 </script>
