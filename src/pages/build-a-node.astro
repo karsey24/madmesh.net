@@ -276,30 +276,41 @@ import treeNodeHangingW1SCO from "../assets/tree-node-hanging-W1SCO.jpg";
 			<p>
 				Once your node is online, set it to the correct <strong>role</strong> for its purpose:
 			</p>
+			<h4>Meshtastic roles</h4>
 			<ul style="color: var(--clr-light); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
 				<li>
-					<strong>Client</strong> — for handheld or personal nodes you actively use to send messages.
+					<strong>Client</strong> — best for mobile/handheld nodes. Relays messages unless configured not to.
 				</li>
 				<li>
-					<strong>Router</strong> — for fixed nodes that relay traffic. Uses minimal battery and prioritizes
-					routing. Best for rooftop nodes.
+					<strong>Client</strong> — best for saving battery life. Does not relay any messages.
 				</li>
 				<li>
-					<strong>Router/Client</strong> — for a fixed node where you also want to send messages occasionally.
+					<strong>Client Base</strong> — best for fixed nodes, prioritizes messages from nodes in its favorite
+					list.
+				</li>
+				<li>
+					<strong>Router</strong> — do not use router. It hurts the network in 99% of cases.
 				</li>
 			</ul>
+			<h4>MeshCore roles</h4>
 			<p>
-				For MeshCore, similar roles exist under different names — ask in the Discord for current guidance on
-				the Madison Mesh configuration.
+				For MeshCore, repeaters are the only nodes that relay messages, and companions are the only nodes
+				that can send messages. Set fixed nodes to repeater, and handheld nodes to companion.
+				<br />
+				<br />
+				If you are setting up a repeater, check the <a href="https://analyzer.letsmesh.net/nodes/repeaters">
+					repeater list</a
+				> (set your region filter to MSN only) and make sure that your node's public key is not going to conflict
+				with an existing repeater. Conflicts are based on the first two characters (e.x. BA) of the public key.
+				Use <a href="https://gessaman.com/mc-keygen/">gessaman's key generator</a>.
 			</p>
-			<a
-				href="https://discord.gg/fd3JUZc2CN"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="btn btn-primary"
-			>
-				Ask questions on Discord &rarr;
-			</a>
+			<h4>Finishing up</h4>
+			<p>
+				<a href="https://config.meshcore.dev/">MeshCore configuration tool</a> &bull; <a
+					href="https://meshtastic.org/docs/configuration/">Meshtastic documentation</a
+				> &bull;
+				<a href="https://discord.gg/fd3JUZc2CN">Ask questions on Discord</a>
+			</p>
 		</section>
 	</div>
 </Layout>
