@@ -376,33 +376,33 @@ a:hover {
 
 .hero-slide-state {
     background-image: url("/smay-state-street-wide.jpg");
-    animation: hero-slide-state-desktop 18s infinite;
+    animation: hero-slide-state-desktop 24s infinite;
 }
 
 .hero-slide-terrace {
     background-image: url("/smay-terrace-wide.jpg");
-    animation: hero-slide-terrace-desktop 18s infinite;
+    animation: hero-slide-terrace-desktop 24s infinite;
 }
 
 .hero-slide-background {
     background-image: url("/background.jpg");
-    animation: hero-slide-background-desktop 18s infinite;
+    animation: hero-slide-background-desktop 24s infinite;
 }
 
 @keyframes hero-slide-state-desktop {
-    0%, 32.99% { opacity: 1; }
-    33%, 100% { opacity: 0; }
-}
-
-@keyframes hero-slide-terrace-desktop {
     0%, 32.99% { opacity: 0; }
     33%, 66.49% { opacity: 1; }
     66.5%, 100% { opacity: 0; }
 }
 
-@keyframes hero-slide-background-desktop {
+@keyframes hero-slide-terrace-desktop {
     0%, 66.49% { opacity: 0; }
     66.5%, 100% { opacity: 1; }
+}
+
+@keyframes hero-slide-background-desktop {
+    0%, 32.99% { opacity: 1; }
+    33%, 100% { opacity: 0; }
 }
 
 .hero-overlay {
@@ -450,7 +450,7 @@ a:hover {
     position: absolute;
     left: 1rem;
     right: 1.5rem;
-    bottom: 0.9rem;
+    bottom: 1rem;
     z-index: 2;
     pointer-events: none;
     display: flex;
@@ -479,31 +479,31 @@ a:hover {
 }
 
 .hero-credit-state {
-    animation: hero-credit-state-desktop 18s infinite;
+    animation: hero-credit-state-desktop 24s infinite;
 }
 
 .hero-credit-terrace {
-    animation: hero-credit-terrace-desktop 18s infinite;
+    animation: hero-credit-terrace-desktop 24s infinite;
 }
 
 .hero-credit-background {
-    animation: hero-credit-background-desktop 18s infinite;
+    animation: hero-credit-background-desktop 24s infinite;
 }
 
 @keyframes hero-credit-state-desktop {
-    0%, 32.99% { opacity: 1; }
-    33%, 100% { opacity: 0; }
-}
-
-@keyframes hero-credit-terrace-desktop {
     0%, 32.99% { opacity: 0; }
     33%, 66.49% { opacity: 1; }
     66.5%, 100% { opacity: 0; }
 }
 
-@keyframes hero-credit-background-desktop {
+@keyframes hero-credit-terrace-desktop {
     0%, 66.49% { opacity: 0; }
     66.5%, 100% { opacity: 1; }
+}
+
+@keyframes hero-credit-background-desktop {
+    0%, 32.99% { opacity: 1; }
+    33%, 100% { opacity: 0; }
 }
 
 /* ============================
@@ -940,19 +940,19 @@ svg {
 
     .hero-slide-capitol {
         display: block;
-        animation: hero-slide-capitol-mobile 18s infinite;
+        animation: hero-slide-capitol-mobile 24s infinite;
     }
 
     .hero-slide-state {
-        animation: hero-slide-state-mobile 18s infinite;
+        animation: hero-slide-state-mobile 24s infinite;
     }
 
     .hero-slide-terrace {
-        animation: hero-slide-terrace-mobile 18s infinite;
+        animation: hero-slide-terrace-mobile 24s infinite;
     }
 
     .hero-slide-background {
-        animation: hero-slide-background-mobile 18s infinite;
+        animation: hero-slide-background-mobile 24s infinite;
     }
 
     @keyframes hero-slide-capitol-mobile {
@@ -960,25 +960,25 @@ svg {
         25%, 100% { opacity: 0; }
     }
 
-    @keyframes hero-slide-state-mobile {
+    @keyframes hero-slide-background-mobile {
         0%, 24.99% { opacity: 0; }
         25%, 49.99% { opacity: 1; }
         50%, 100% { opacity: 0; }
     }
 
-    @keyframes hero-slide-terrace-mobile {
+    @keyframes hero-slide-state-mobile {
         0%, 49.99% { opacity: 0; }
         50%, 74.99% { opacity: 1; }
         75%, 100% { opacity: 0; }
     }
 
-    @keyframes hero-slide-background-mobile {
+    @keyframes hero-slide-terrace-mobile {
         0%, 74.99% { opacity: 0; }
         75%, 100% { opacity: 1; }
     }
 
     .hero-credit {
-        left: 0.8rem;
+        left: 1.5rem;
         right: 0.8rem;
         bottom: calc(0.5rem + env(safe-area-inset-bottom));
         justify-content: flex-start;
@@ -993,19 +993,19 @@ svg {
 
     .hero-credit-capitol {
         display: inline;
-        animation: hero-credit-capitol-mobile 18s infinite;
-    }
-
-    .hero-credit-state {
-        animation: hero-credit-state-mobile 18s infinite;
-    }
-
-    .hero-credit-terrace {
-        animation: hero-credit-terrace-mobile 18s infinite;
+        animation: hero-credit-capitol-mobile 24s infinite;
     }
 
     .hero-credit-background {
-        animation: hero-credit-background-mobile 18s infinite;
+        animation: hero-credit-background-mobile 24s infinite;
+    }
+
+    .hero-credit-state {
+        animation: hero-credit-state-mobile 24s infinite;
+    }
+
+    .hero-credit-terrace {
+        animation: hero-credit-terrace-mobile 24s infinite;
     }
 
     @keyframes hero-credit-capitol-mobile {
@@ -1014,20 +1014,20 @@ svg {
     }
 
     @keyframes hero-credit-state-mobile {
-        0%, 24.99% { opacity: 0; }
-        25%, 49.99% { opacity: 1; }
-        50%, 100% { opacity: 0; }
-    }
-
-    @keyframes hero-credit-terrace-mobile {
         0%, 49.99% { opacity: 0; }
         50%, 74.99% { opacity: 1; }
         75%, 100% { opacity: 0; }
     }
 
-    @keyframes hero-credit-background-mobile {
+    @keyframes hero-credit-terrace-mobile {
         0%, 74.99% { opacity: 0; }
         75%, 100% { opacity: 1; }
+    }
+
+    @keyframes hero-credit-background-mobile {
+        0%, 24.99% { opacity: 0; }
+        25%, 49.99% { opacity: 1; }
+        50%, 100% { opacity: 0; }
     }
 }
 
