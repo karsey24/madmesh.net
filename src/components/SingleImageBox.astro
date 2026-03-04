@@ -1,0 +1,27 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	caption?: string;
+	credit?: string;
+	loading?: "lazy" | "eager";
+	class?: string;
+}
+
+const { src, alt, caption, credit, loading = "lazy", class: className = "" } = Astro.props;
+---
+
+<figure class={`image-box ${className}`.trim()}>
+	<img src={src} alt={alt} loading={loading} />
+	{
+		credit && (
+			<div class="image-credit-control">
+				<button type="button" class="image-credit-toggle" aria-label={`Show image credit for ${alt}`}>
+					ⓘ
+				</button>
+				<span class="image-credit-text">{credit}</span>
+			</div>
+		)
+	}
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import GalleryBox from "../components/GalleryBox.astro";
 import handheldNodeGutsOrum from "../assets/handheld-node-guts-Orum.jpg";
 import handheldNodeGuts2Orum from "../assets/handheld-node-guts-2-Orum.jpg";
 ---
@@ -256,23 +257,17 @@ import handheldNodeGuts2Orum from "../assets/handheld-node-guts-2-Orum.jpg";
 				</div>
 			</div>
 		</section>
-		<div class="card-grid" style="margin-top: 1rem;">
-			<div class="card" style="padding: 0.75rem;">
-				<img
-					src={handheldNodeGutsOrum.src}
-					alt="Two community members with handheld mesh nodes"
-					loading="lazy"
-					style="display: block; width: 100%; height: auto; border-radius: 8px;"
-				/>
-			</div>
-			<div class="card" style="padding: 0.75rem;">
-				<img
-					src={handheldNodeGuts2Orum.src}
-					alt="Community members testing handheld nodes"
-					loading="lazy"
-					style="display: block; width: 100%; height: auto; border-radius: 8px;"
-				/>
-			</div>
-		</div>
+		<GalleryBox
+			images={[
+				{
+					src: handheldNodeGutsOrum.src,
+					alt: "Two community members with handheld mesh nodes",
+				},
+				{
+					src: handheldNodeGuts2Orum.src,
+					alt: "Community members testing handheld nodes",
+				},
+			]}
+		/>
 	</div>
 </Layout>

@@ -1,0 +1,39 @@
+---
+interface GalleryImage {
+	src: string;
+	alt: string;
+	caption?: string;
+	credit?: string;
+	loading?: "lazy" | "eager";
+}
+
+interface Props {
+	images: GalleryImage[];
+	class?: string;
+}
+
+const { images, class: className = "" } = Astro.props;
+---
+
+<div class={`gallery-box ${className}`.trim()}>
+	{
+		images.map((image) => (
+			<figure class="gallery-box-item">
+				<img src={image.src} alt={image.alt} loading={image.loading ?? "lazy"} />
+				{image.credit && (
+					<div class="image-credit-control">
+						<button
+							type="button"
+							class="image-credit-toggle"
+							aria-label={`Show image credit for ${image.alt}`}
+						>
+							ⓘ
+						</button>
+						<span class="image-credit-text">{image.credit}</span>
+					</div>
+				)}
+				{image.caption && <figcaption>{image.caption}</figcaption>}
+			</figure>
+		))
+	}
+</div>

@@ -354,6 +354,22 @@ a:hover {
     background-image: url("/background.jpg");
     background-size: cover;
     background-position: center;
+    animation: hero-background-cycle 18s infinite;
+}
+
+/* Cut square images from wider screens */
+@keyframes hero-background-cycle {
+    0%, 32.99% {
+        background-image: url("/smay-state-street-wide.jpg");
+    }
+
+    33%, 66.49% {
+        background-image: url("/smay-terrace-wide.jpg");
+    }
+
+    66.5%, 100% {
+        background-image: url("/background.jpg");
+    }
 }
 
 .hero-overlay {
@@ -394,6 +410,60 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+}
+
+.hero-credit {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.9rem;
+    z-index: 1;
+    pointer-events: none;
+    display: grid;
+    align-items: end;
+}
+
+.hero-credit-item {
+    grid-area: 1 / 1;
+    opacity: 0;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 0.22rem 0.45rem;
+    white-space: nowrap;
+}
+
+.hero-credit-capitol {
+    display: none;
+}
+
+.hero-credit-state {
+    animation: hero-credit-state-desktop 18s infinite;
+}
+
+.hero-credit-terrace {
+    animation: hero-credit-terrace-desktop 18s infinite;
+}
+
+.hero-credit-background {
+    animation: hero-credit-background-desktop 18s infinite;
+}
+
+@keyframes hero-credit-state-desktop {
+    0%, 32.99% { opacity: 1; }
+    33%, 100% { opacity: 0; }
+}
+
+@keyframes hero-credit-terrace-desktop {
+    0%, 32.99% { opacity: 0; }
+    33%, 66.49% { opacity: 1; }
+    66.5%, 100% { opacity: 0; }
+}
+
+@keyframes hero-credit-background-desktop {
+    0%, 66.49% { opacity: 0; }
+    66.5%, 100% { opacity: 1; }
 }
 
 /* ============================
@@ -459,6 +529,105 @@ a:hover {
 .btn-secondary:hover {
     background-color: var(--clr-neutral-border);
     color: var(--clr-primary);
+}
+
+/* ============================
+   Image Display
+   ============================ */
+
+.image-box {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0 0;
+    background-color: var(--clr-neutral-card);
+    border: 1px solid var(--clr-neutral-border);
+    border-radius: calc(var(--border-radius) * 1.5);
+    padding: 0.75rem;
+    overflow: hidden;
+}
+
+.image-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.gallery-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.gallery-box-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.gallery-box-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.image-box figcaption,
+.gallery-box-item figcaption {
+    font-size: 0.9rem;
+    color: oklch(65% 0.005 271);
+    margin-top: 0.45rem;
+}
+
+.image-credit-control {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: calc(100% - 1.5rem);
+}
+
+.image-credit-toggle {
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.image-credit-text {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--transition), transform var(--transition);
+    font-size: 0.8rem;
+    color: var(--clr-light);
+    background-color: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: min(70vw, 360px);
+    pointer-events: none;
+}
+
+.image-box:hover .image-credit-text,
+.image-box:focus-within .image-credit-text,
+.gallery-box-item:hover .image-credit-text,
+.gallery-box-item:focus-within .image-credit-text {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================
@@ -727,6 +896,100 @@ svg {
         box-shadow: none;
         z-index: auto;
         padding-left: 0.35rem;
+    }
+
+    /* Mobile is better for images that resize down to squares well. */
+    @keyframes hero-background-cycle {
+
+        0%,
+        24.99% {
+            background-image: url("/capitol-rainbow-lizzy-larson.jpg");
+        }
+
+        25%,
+        49.99% {
+            background-image: url("/smay-state-street-wide.jpg");
+        }
+
+        50%,
+        74.99% {
+            background-image: url("/smay-terrace-wide.jpg");
+        }
+
+        75%,
+        100% {
+            background-image: url("/background.jpg");
+        }
+    }
+
+    .hero-credit {
+        right: 0.7rem;
+        bottom: 0.7rem;
+    }
+
+    .hero-credit-item {
+        font-size: 0.72rem;
+        max-width: calc(100vw - 1.4rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .hero-credit-capitol {
+        display: inline;
+        animation: hero-credit-capitol-mobile 18s infinite;
+    }
+
+    .hero-credit-state {
+        animation: hero-credit-state-mobile 18s infinite;
+    }
+
+    .hero-credit-terrace {
+        animation: hero-credit-terrace-mobile 18s infinite;
+    }
+
+    .hero-credit-background {
+        animation: hero-credit-background-mobile 18s infinite;
+    }
+
+    @keyframes hero-credit-capitol-mobile {
+        0%, 24.99% { opacity: 1; }
+        25%, 100% { opacity: 0; }
+    }
+
+    @keyframes hero-credit-state-mobile {
+        0%, 24.99% { opacity: 0; }
+        25%, 49.99% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+    }
+
+    @keyframes hero-credit-terrace-mobile {
+        0%, 49.99% { opacity: 0; }
+        50%, 74.99% { opacity: 1; }
+        75%, 100% { opacity: 0; }
+    }
+
+    @keyframes hero-credit-background-mobile {
+        0%, 74.99% { opacity: 0; }
+        75%, 100% { opacity: 1; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-banner {
+        animation: none;
+        background-image: url("/background.jpg");
+    }
+
+    .hero-credit-capitol,
+    .hero-credit-state,
+    .hero-credit-terrace,
+    .hero-credit-background {
+        animation: none;
+        opacity: 0;
+    }
+
+    .hero-credit-background {
+        opacity: 1;
     }
 }
 

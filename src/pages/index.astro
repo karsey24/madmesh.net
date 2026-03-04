@@ -1,16 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SingleImageBox from "../components/SingleImageBox.astro";
+import GalleryBox from "../components/GalleryBox.astro";
 import nodeEaveIHateComputers from "../assets/node-eave-iHateComputers.jpg";
 import outdoorNodeGutsIHateComputers from "../assets/outdoor-node-guts-iHateComputers.jpg";
 import tinyHandheldNodeCloseupOrum from "../assets/tiny-handheld-node-closeup-Orum.jpg";
 ---
 
-<Layout title="Madison Mesh" description="Building a free, community-owned mesh radio network in Madison, Wisconsin.">
+<Layout title="Madison Mesh" description="Building a decentralized mesh radio network in Madison, Wisconsin.">
 	<!-- Hero Banner -->
 	<section class="hero-banner" aria-label="Site hero">
 		<div class="hero-overlay"></div>
 		<div class="hero-content">
-			<h1>We're building a mesh radio network in Madison</h1>
+			<h1>We're building a decentralized mesh radio network in Madison</h1>
 			<p>
 				Madison Mesh is a community of radio hobbyists connecting our city through decentralized, off-grid
 				communication technology <i>without</i> cell towers or internet.
@@ -37,6 +39,12 @@ import tinyHandheldNodeCloseupOrum from "../assets/tiny-handheld-node-closeup-Or
 					Join our Discord
 				</a>
 			</div>
+		</div>
+		<div class="hero-credit" aria-label="Hero image copyright">
+			<span class="hero-credit-item hero-credit-capitol">© Photo: Lizzy Larson</span>
+			<span class="hero-credit-item hero-credit-state">© Photo: SuperSmay</span>
+			<span class="hero-credit-item hero-credit-terrace">© Photo: SuperSmay</span>
+			<span class="hero-credit-item hero-credit-background">© Photo: Karsey Renfert</span>
 		</div>
 	</section>
 
@@ -80,32 +88,22 @@ import tinyHandheldNodeCloseupOrum from "../assets/tiny-handheld-node-closeup-Or
 				<a href="/getting-started" class="btn btn-primary">See the Getting Started Guide &rarr;</a>
 			</section>
 
-			<div class="card-grid" style="margin-top: 1rem;">
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={nodeEaveIHateComputers.src}
-						alt="Mounted outdoor mesh node installed along a roof eave"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
-				</div>
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={outdoorNodeGutsIHateComputers.src}
-						alt="A look inside an outdoor mesh node"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
-				</div>
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={tinyHandheldNodeCloseupOrum.src}
-						alt="Close-up of a tiny handheld mesh node"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
-				</div>
-			</div>
+			<GalleryBox
+				images={[
+					{
+						src: nodeEaveIHateComputers.src,
+						alt: "Mounted outdoor mesh node installed along a roof eave",
+					},
+					{
+						src: outdoorNodeGutsIHateComputers.src,
+						alt: "A look inside an outdoor mesh node",
+					},
+					{
+						src: tinyHandheldNodeCloseupOrum.src,
+						alt: "Close-up of a tiny handheld mesh node",
+					},
+				]}
+			/>
 		</section>
 	</div>
 </Layout>

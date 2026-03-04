@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import GalleryBox from "../components/GalleryBox.astro";
 import treeNodeHangingOrum from "../assets/tree-node-hanging-Orum.jpg";
 import treeNodeHangingW1SCO from "../assets/tree-node-hanging-W1SCO.jpg";
 ---
@@ -249,24 +250,18 @@ import treeNodeHangingW1SCO from "../assets/tree-node-hanging-W1SCO.jpg";
 				</div>
 			</div>
 
-			<div class="card-grid" style="margin-top: 1rem; margin-bottom: 0.5rem;">
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={treeNodeHangingOrum.src}
-						alt="Tree-mounted mesh node enclosure"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
-				</div>
-				<div class="card" style="padding: 0.75rem;">
-					<img
-						src={treeNodeHangingW1SCO.src}
-						alt="Hanging outdoor mesh node installed in a tree"
-						loading="lazy"
-						style="display: block; width: 100%; height: auto; border-radius: 8px;"
-					/>
-				</div>
-			</div>
+			<GalleryBox
+				images={[
+					{
+						src: treeNodeHangingOrum.src,
+						alt: "Tree-mounted mesh node enclosure",
+					},
+					{
+						src: treeNodeHangingW1SCO.src,
+						alt: "Hanging outdoor mesh node installed in a tree",
+					},
+				]}
+			/>
 		</section>
 
 		<hr class="divider" />
